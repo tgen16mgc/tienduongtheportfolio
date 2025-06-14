@@ -242,28 +242,28 @@ const FullScreenMenu = ({ isOpen, onClose }: FullScreenMenuProps) => {
           <div className="flex justify-center items-start gap-[90px] mt-[65px]">
             {/* Left section */}
             <motion.div
-              className="flex flex-col items-end gap-[18px] self-stretch"
+              className="flex flex-col items-end gap-3 self-stretch"
               variants={itemVariants}
               initial="hidden"
               animate="visible"
               exit="hidden"
               transition={{ delay: 0.8 }}
             >
-              <div className="flex w-[158px] flex-col items-end gap-[15px]">
+              <div className="flex w-[158px] flex-col items-end gap-1">
                 <span className="text-[#C8C8C8] text-right text-[13px] font-medium leading-[105%] tracking-[-0.39px]">LOCATION</span>
-                <span className="text-white text-right text-[13px] font-medium leading-[140%] tracking-[-0.39px]">
+                <span className="text-white text-right text-[13px] font-medium leading-[130%] tracking-[-0.39px]">
                   Thanh Xuan, Hanoi<br />Vietnam
                 </span>
               </div>
-              <div className="flex w-[159px] flex-col items-end gap-[15px]">
+              <div className="flex w-[159px] flex-col items-end gap-1">
                 <span className="text-[#C8C8C8] text-[13px] font-medium leading-[105%] tracking-[-0.39px]">EMAIL</span>
-                <span className="text-white text-right text-[13px] font-medium leading-[140%] tracking-[-0.39px]">
+                <span className="text-white text-right text-[13px] font-medium leading-[130%] tracking-[-0.39px]">
                   tiendn.fw@gmail.com
                 </span>
               </div>
-              <div className="flex flex-col items-end gap-[15px]">
+              <div className="flex flex-col items-end gap-1">
                 <span className="text-[#C8C8C8] text-[13px] font-medium leading-[105%] tracking-[-0.39px]">LINKEDIN</span>
-                <span className="text-white text-right text-[13px] font-medium leading-[140%] tracking-[-0.39px]">
+                <span className="text-white text-right text-[13px] font-medium leading-[130%] tracking-[-0.39px]">
                   linkedin.com/in/tienduongngoc/
                 </span>
               </div>
