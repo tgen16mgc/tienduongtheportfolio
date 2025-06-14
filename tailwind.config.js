@@ -8,17 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: [
-          'var(--font-outfit)',
-          'system-ui',
-          '-apple-system',
-          'BlinkMacSystemFont',
-          'Segoe UI',
-          'Roboto',
-          'Helvetica Neue',
-          'Arial',
-          'sans-serif'
-        ],
+        sans: ['var(--font-outfit)'],
+        'jakarta-sans': ['Plus Jakarta Sans', 'sans-serif'],
       },
       colors: {
         light: '#F5F5F5',
