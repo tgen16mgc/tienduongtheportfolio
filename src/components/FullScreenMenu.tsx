@@ -284,24 +284,22 @@ const FullScreenMenu = ({ isOpen, onClose }: FullScreenMenuProps) => {
                     <motion.button 
                       onClick={handleHomeClick}
                       disabled={isNavigating}
-                      className={`block text-center text-[26.397px] font-extrabold leading-[105%] tracking-[-0.792px] hover:opacity-80 transition-opacity ${pathname === '/' ? 'text-white' : 'text-[#666666]'} ${isNavigating ? 'pointer-events-none opacity-50' : ''} relative z-[10002]`}
+                      className={`block text-center text-[26.397px] font-extrabold leading-[105%] tracking-[-0.792px] transition-opacity ${pathname === '/' ? 'text-white' : 'text-[#666666]'} ${isNavigating ? 'pointer-events-none opacity-50' : ''} relative z-[10002]`}
                       style={{ pointerEvents: 'auto' }}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
                     >
-                      <motion.span
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                      >
-                        HOME
-                      </motion.span>
+                      HOME
                     </motion.button>
                     <Link 
                       href="/about"
                       onClick={handleClick}
-                      className={`block text-center text-[26.397px] font-extrabold leading-[105%] tracking-[-0.792px] hover:opacity-80 transition-opacity ${pathname === '/about' ? 'text-white' : 'text-[#666666]'}`}
+                      className={`block text-center text-[26.397px] font-extrabold leading-[105%] tracking-[-0.792px] transition-opacity ${pathname === '/about' ? 'text-white' : 'text-[#666666]'}`}
                     >
                       <motion.span
                         whileHover={{ scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        className="inline-block"
                       >
                         ABOUT
                       </motion.span>
@@ -309,11 +307,12 @@ const FullScreenMenu = ({ isOpen, onClose }: FullScreenMenuProps) => {
                     <Link 
                       href="/projects"
                       onClick={handleClick}
-                      className={`block text-center text-[26.397px] font-extrabold leading-[105%] tracking-[-0.792px] hover:opacity-80 transition-opacity ${pathname === '/projects' ? 'text-white' : 'text-[#666666]'}`}
+                      className={`block text-center text-[26.397px] font-extrabold leading-[105%] tracking-[-0.792px] transition-opacity ${pathname === '/projects' ? 'text-white' : 'text-[#666666]'}`}
                     >
                       <motion.span
                         whileHover={{ scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        className="inline-block"
                       >
                         PROJECTS
                       </motion.span>
@@ -321,11 +320,12 @@ const FullScreenMenu = ({ isOpen, onClose }: FullScreenMenuProps) => {
                     <Link 
                       href="/contact"
                       onClick={handleClick}
-                      className={`block text-center text-[26.397px] font-extrabold leading-[105%] tracking-[-0.792px] hover:opacity-80 transition-opacity ${pathname === '/contact' ? 'text-white' : 'text-[#666666]'}`}
+                      className={`block text-center text-[26.397px] font-extrabold leading-[105%] tracking-[-0.792px] transition-opacity ${pathname === '/contact' ? 'text-white' : 'text-[#666666]'}`}
                     >
                       <motion.span
                         whileHover={{ scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        className="inline-block"
                       >
                         CONTACT
                       </motion.span>

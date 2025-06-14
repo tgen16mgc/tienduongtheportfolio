@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-outfit)'],
-        'jakarta-sans': ['Plus Jakarta Sans', 'sans-serif'],
+        'jakarta-sans': ['var(--font-jakarta)', 'sans-serif'],
       },
       colors: {
         light: '#F5F5F5',
