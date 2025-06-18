@@ -8,8 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-outfit)'],
-        'jakarta-sans': ['var(--font-jakarta)', 'sans-serif'],
+        sans: ['Rethink Sans', 'var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       colors: {
         light: '#F5F5F5',

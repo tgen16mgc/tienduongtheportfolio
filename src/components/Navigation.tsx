@@ -121,63 +121,63 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 w-full h-[98px] px-4 md:px-8 lg:px-[52px] py-[23px] bg-transparent backdrop-blur-sm flex flex-col items-start gap-[10px] z-50">
-        <div className="max-w-[1440px] mx-auto flex justify-between items-center w-full">
-          {/* Logo */}
-          <Link href="/" className="text-[#FFF] font-jakarta-sans text-[20px] md:text-[23.537px] font-semibold leading-[105%] tracking-[-0.706px] whitespace-nowrap">
-            Tien Duong Ngoc
+    <nav className="fixed top-0 left-0 right-0 w-full h-[5vh] min-h-[60px] max-h-[100px] px-[3%] py-[1vh] pt-[1.5vh] bg-transparent backdrop-blur-sm flex flex-col items-start z-50">
+      <div className="max-w-[1440px] w-full mx-auto flex justify-between items-center">
+        {/* Logo */}
+        <Link href="/" className="text-[#FFF] text-[clamp(16px,1.5vw,26px)] font-semibold leading-[105%] tracking-[-0.5px] md:tracking-[-0.706px] whitespace-nowrap">
+          Tien Duong Ngoc
+        </Link>
+
+        {/* Right Frame */}
+        <div className="flex items-center gap-[clamp(8px,2vw,60px)]">
+          {/* Glass Box with Dynamic Glow */}
+          <Link 
+            href="/contact"
+            ref={contactButtonRef}
+            className="relative min-w-[80px] w-[clamp(80px,8vw,140px)] h-[clamp(40px,4vh,58px)] px-[clamp(12px,1.5vw,32px)] py-[clamp(8px,1vh,18px)] flex justify-center items-center rounded-[31.2px] bg-gradient-to-b from-black/50 to-[#181818]/50 shadow-[0px_0px_1.956px_0.098px_rgba(255,255,255,0.50)_inset] backdrop-blur-[5.868px] group cursor-pointer overflow-hidden transition-all duration-300"
+          >
+            {/* Dynamic Glow Effect */}
+            <div 
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none will-change-transform z-0"
+              style={{
+                background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.25) 0%, transparent 80%)`,
+                transform: 'translate(-50%, -50%)',
+                left: `${mousePosition.x}px`,
+                top: `${mousePosition.y}px`,
+                width: '300%',
+                height: '300%',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+              }}
+            />
+            <span className="text-white text-[clamp(12px,0.9vw,18px)] relative z-10">Contact</span>
           </Link>
 
-          {/* Right Frame */}
-          <div className="flex items-center gap-4 md:gap-[42px]">
-            {/* Glass Box with Dynamic Glow */}
-            <Link 
-              href="/contact"
-              ref={contactButtonRef}
-              className="relative min-w-[100px] md:min-w-[126.1px] h-[52px] px-4 md:px-[26px] py-[15px] flex justify-center items-center rounded-[31.2px] bg-gradient-to-b from-black/50 to-[#181818]/50 shadow-[0px_0px_1.956px_0.098px_rgba(255,255,255,0.50)_inset] backdrop-blur-[5.868px] group cursor-pointer overflow-hidden transition-all duration-300"
-            >
-              {/* Dynamic Glow Effect */}
-              <div 
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none will-change-transform z-0"
-                style={{
-                  background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.25) 0%, transparent 80%)`,
-                  transform: 'translate(-50%, -50%)',
-                  left: `${mousePosition.x}px`,
-                  top: `${mousePosition.y}px`,
-                  width: '300%',
-                  height: '300%',
-                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                }}
+          {/* Hamburger Icon */}
+          <motion.button
+            onClick={() => setIsMenuOpen(true)}
+            className="w-[clamp(18px,1.5vw,24px)] h-[clamp(18px,1.5vw,24px)] flex items-center justify-center hover:opacity-80 transition-opacity"
+            aria-label="Toggle menu"
+            variants={buttonVariants}
+            initial="initial"
+            whileHover="hover"
+            whileTap="tap"
+          >
+            <svg width="100%" height="100%" viewBox="0 0 20 20" fill="none">
+              <motion.path
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                variants={iconVariants}
+                initial="closed"
+                animate={isMenuOpen ? "open" : "closed"}
               />
-              <span className="text-white font-jakarta-sans text-sm md:text-base relative z-10">Contact</span>
-            </Link>
-
-            {/* Hamburger Icon */}
-            <motion.button
-              onClick={() => setIsMenuOpen(true)}
-              className="w-[20px] h-[20px] flex items-center justify-center hover:opacity-80 transition-opacity"
-              aria-label="Toggle menu"
-              variants={buttonVariants}
-              initial="initial"
-              whileHover="hover"
-              whileTap="tap"
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <motion.path
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  variants={iconVariants}
-                  initial="closed"
-                  animate={isMenuOpen ? "open" : "closed"}
-                />
-              </svg>
-            </motion.button>
-          </div>
+            </svg>
+          </motion.button>
         </div>
-      </nav>
+      </div>
+    </nav>
 
-      <FullScreenMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+    <FullScreenMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </>
   );
 };

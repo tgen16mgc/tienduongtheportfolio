@@ -213,18 +213,18 @@ const FullScreenMenu = ({ isOpen, onClose }: FullScreenMenuProps) => {
         >
           {/* Nav bar with close button */}
           <motion.div 
-            className="fixed top-0 left-0 right-0 w-full h-[98px] px-4 md:px-8 lg:px-[52px] py-[23px] flex justify-end items-center"
+            className="fixed top-0 left-0 right-0 w-full h-[5vh] min-h-[60px] max-h-[100px] px-[3%] py-[1vh] pt-[1.5vh] flex justify-end items-center"
           >
             <motion.button
               onClick={onClose}
-              className="w-[20px] h-[20px] flex items-center justify-center hover:opacity-80 transition-opacity"
+              className="w-[clamp(18px,1.5vw,24px)] h-[clamp(18px,1.5vw,24px)] flex items-center justify-center hover:opacity-80 transition-opacity"
               aria-label="Close menu"
               variants={buttonVariants}
               initial="initial"
               whileHover="hover"
               whileTap="tap"
             >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <svg width="100%" height="100%" viewBox="0 0 20 20" fill="none">
                 <motion.path
                   stroke="white"
                   strokeWidth="2"
@@ -239,31 +239,31 @@ const FullScreenMenu = ({ isOpen, onClose }: FullScreenMenuProps) => {
           </motion.div>
 
           {/* Main content */}
-          <div className="flex justify-center items-start gap-[90px] mt-[65px]">
-            {/* Left section */}
+          <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-[5vh] md:gap-[3vw] lg:gap-[4vw] xl:gap-[5vw] mt-[12vh] px-[3%] w-full max-w-[1440px] mx-auto">
+            {/* Left section - Hidden on mobile, shown on md and up */}
             <motion.div
-              className="flex flex-col items-end gap-3 self-stretch"
+              className="hidden md:flex flex-col items-end gap-[2vh] self-stretch"
               variants={itemVariants}
               initial="hidden"
               animate="visible"
               exit="hidden"
               transition={{ delay: 0.8 }}
             >
-              <div className="flex w-[158px] flex-col items-end gap-1">
-                <span className="text-[#C8C8C8] text-right text-[13px] font-medium leading-[105%] tracking-[-0.39px]">LOCATION</span>
-                <span className="text-white text-right text-[13px] font-medium leading-[130%] tracking-[-0.39px]">
+              <div className="flex w-[clamp(150px,12vw,200px)] flex-col items-end gap-[0.5vh]">
+                <span className="text-[#C8C8C8] text-right text-[clamp(12px,0.9vw,15px)] font-medium leading-[105%] tracking-[-0.39px]">LOCATION</span>
+                <span className="text-white text-right text-[clamp(12px,0.9vw,15px)] font-medium leading-[130%] tracking-[-0.39px]">
                   Thanh Xuan, Hanoi<br />Vietnam
                 </span>
               </div>
-              <div className="flex w-[159px] flex-col items-end gap-1">
-                <span className="text-[#C8C8C8] text-[13px] font-medium leading-[105%] tracking-[-0.39px]">EMAIL</span>
-                <span className="text-white text-right text-[13px] font-medium leading-[130%] tracking-[-0.39px]">
+              <div className="flex w-[clamp(150px,12vw,200px)] flex-col items-end gap-[0.5vh]">
+                <span className="text-[#C8C8C8] text-[clamp(12px,0.9vw,15px)] font-medium leading-[105%] tracking-[-0.39px]">EMAIL</span>
+                <span className="text-white text-right text-[clamp(12px,0.9vw,15px)] font-medium leading-[130%] tracking-[-0.39px]">
                   tiendn.fw@gmail.com
                 </span>
               </div>
-              <div className="flex flex-col items-end gap-1">
-                <span className="text-[#C8C8C8] text-[13px] font-medium leading-[105%] tracking-[-0.39px]">LINKEDIN</span>
-                <span className="text-white text-right text-[13px] font-medium leading-[130%] tracking-[-0.39px]">
+              <div className="flex flex-col items-end gap-[0.5vh]">
+                <span className="text-[#C8C8C8] text-[clamp(12px,0.9vw,15px)] font-medium leading-[105%] tracking-[-0.39px]">LINKEDIN</span>
+                <span className="text-white text-right text-[clamp(12px,0.9vw,15px)] font-medium leading-[130%] tracking-[-0.39px]">
                   linkedin.com/in/tienduongngoc/
                 </span>
               </div>
@@ -271,20 +271,20 @@ const FullScreenMenu = ({ isOpen, onClose }: FullScreenMenuProps) => {
 
             {/* Center section */}
             <motion.div
-              className="flex flex-col items-center gap-8 relative z-[10001]"
+              className="flex flex-col items-center gap-[3vh] relative z-[10001]"
               variants={itemVariants}
               initial="hidden"
               animate="visible"
               exit="hidden"
               transition={{ delay: 0.2 }}
             >
-              <div className="flex w-[289.5px] px-[82px] justify-center items-center gap-[10px] border-x border-[#434343]">
-                <div className="flex w-[123px] flex-col items-center gap-6">
-                  <motion.div className="flex flex-col items-center gap-[21px]">
+              <div className="flex w-full md:w-[clamp(240px,20vw,320px)] px-4 md:px-[clamp(30px,4vw,90px)] justify-center items-center md:border-x md:border-[#434343]">
+                <div className="flex w-full md:w-[clamp(120px,10vw,160px)] flex-col items-center gap-[2vh]">
+                  <motion.div className="flex flex-col items-center gap-[clamp(15px,2vh,28px)]">
                     <motion.button 
                       onClick={handleHomeClick}
                       disabled={isNavigating}
-                      className={`block text-center text-[26.397px] font-extrabold leading-[105%] tracking-[-0.792px] transition-opacity ${pathname === '/' ? 'text-white' : 'text-[#666666]'} ${isNavigating ? 'pointer-events-none opacity-50' : ''} relative z-[10002]`}
+                      className={`block text-center text-[clamp(20px,2vw,34px)] font-extrabold leading-[105%] tracking-[-0.6px] md:tracking-[-0.792px] transition-opacity ${pathname === '/' ? 'text-white' : 'text-[#666666]'} ${isNavigating ? 'pointer-events-none opacity-50' : ''} relative z-[10002]`}
                       style={{ pointerEvents: 'auto' }}
                       whileHover={{ scale: 1.05 }}
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -294,7 +294,7 @@ const FullScreenMenu = ({ isOpen, onClose }: FullScreenMenuProps) => {
                     <Link 
                       href="/about"
                       onClick={handleClick}
-                      className={`block text-center text-[26.397px] font-extrabold leading-[105%] tracking-[-0.792px] transition-opacity ${pathname === '/about' ? 'text-white' : 'text-[#666666]'}`}
+                      className={`block text-center text-[clamp(20px,2vw,34px)] font-extrabold leading-[105%] tracking-[-0.6px] md:tracking-[-0.792px] transition-opacity ${pathname === '/about' ? 'text-white' : 'text-[#666666]'}`}
                     >
                       <motion.span
                         whileHover={{ scale: 1.05 }}
@@ -307,7 +307,7 @@ const FullScreenMenu = ({ isOpen, onClose }: FullScreenMenuProps) => {
                     <Link 
                       href="/projects"
                       onClick={handleClick}
-                      className={`block text-center text-[26.397px] font-extrabold leading-[105%] tracking-[-0.792px] transition-opacity ${pathname === '/projects' ? 'text-white' : 'text-[#666666]'}`}
+                      className={`block text-center text-[clamp(20px,2vw,34px)] font-extrabold leading-[105%] tracking-[-0.6px] md:tracking-[-0.792px] transition-opacity ${pathname === '/projects' ? 'text-white' : 'text-[#666666]'}`}
                     >
                       <motion.span
                         whileHover={{ scale: 1.05 }}
@@ -320,7 +320,7 @@ const FullScreenMenu = ({ isOpen, onClose }: FullScreenMenuProps) => {
                     <Link 
                       href="/contact"
                       onClick={handleClick}
-                      className={`block text-center text-[26.397px] font-extrabold leading-[105%] tracking-[-0.792px] transition-opacity ${pathname === '/contact' ? 'text-white' : 'text-[#666666]'}`}
+                      className={`block text-center text-[clamp(20px,2vw,34px)] font-extrabold leading-[105%] tracking-[-0.6px] md:tracking-[-0.792px] transition-opacity ${pathname === '/contact' ? 'text-white' : 'text-[#666666]'}`}
                     >
                       <motion.span
                         whileHover={{ scale: 1.05 }}
@@ -335,26 +335,73 @@ const FullScreenMenu = ({ isOpen, onClose }: FullScreenMenuProps) => {
               </div>
             </motion.div>
 
-            {/* Right section */}
+            {/* Right section - Hidden on mobile, shown on md and up */}
             <motion.div
-              className="flex flex-col items-start gap-[21px] self-stretch"
+              className="hidden md:flex flex-col items-start gap-[2vh] self-stretch"
               variants={itemVariants}
               initial="hidden"
               animate="visible"
               exit="hidden"
               transition={{ delay: 0.8 }}
             >
-              <div className="flex w-[158px] flex-col items-start gap-[15px]">
-                <span className="text-[#C8C8C8] text-[20px] font-medium leading-[105%] tracking-[-0.6px]">
+              <div className="flex w-[clamp(150px,15vw,220px)] flex-col items-start gap-[1.5vh]">
+                <span className="text-[#C8C8C8] text-[clamp(16px,1.5vw,22px)] font-medium leading-[105%] tracking-[-0.5px] md:tracking-[-0.6px]">
                   Open to new<br />collaboration<br />opportunities
                 </span>
                 <Link 
                   href="/contact"
                   onClick={handleClick}
-                  className="relative w-[110px] h-[52px] flex justify-center items-center rounded-[31.2px] bg-gradient-to-b from-black/50 to-[#181818]/50 shadow-[0px_0px_1.956px_0.098px_rgba(255,255,255,0.50)_inset] backdrop-blur-[5.868px] group cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-[0px_0px_3.912px_0.196px_rgba(255,255,255,0.50)_inset]"
+                  className="relative w-[clamp(90px,8vw,120px)] h-[clamp(40px,4vh,58px)] flex justify-center items-center rounded-[31.2px] bg-gradient-to-b from-black/50 to-[#181818]/50 shadow-[0px_0px_1.956px_0.098px_rgba(255,255,255,0.50)_inset] backdrop-blur-[5.868px] group cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-[0px_0px_3.912px_0.196px_rgba(255,255,255,0.50)_inset]"
                 >
-                  <span className="text-white font-jakarta-sans text-base relative z-10">Contact</span>
+                  <span className="text-white text-[clamp(12px,0.9vw,18px)] relative z-10">Contact</span>
                 </Link>
+              </div>
+            </motion.div>
+
+            {/* Mobile contact button - Shown only on mobile */}
+            <motion.div
+              className="flex md:hidden flex-col items-center gap-[3vh] mt-[2vh]"
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              transition={{ delay: 0.6 }}
+            >
+              <Link 
+                href="/contact"
+                onClick={handleClick}
+                className="relative w-[100px] h-[45px] flex justify-center items-center rounded-[31.2px] bg-gradient-to-b from-black/50 to-[#181818]/50 shadow-[0px_0px_1.956px_0.098px_rgba(255,255,255,0.50)_inset] backdrop-blur-[5.868px] group cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-[0px_0px_3.912px_0.196px_rgba(255,255,255,0.50)_inset]"
+              >
+                <span className="text-white text-sm relative z-10">Contact</span>
+              </Link>
+            </motion.div>
+
+            {/* Mobile info section - Shown only on mobile */}
+            <motion.div
+              className="flex md:hidden flex-col items-center gap-4 mt-2 mb-8"
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              transition={{ delay: 0.7 }}
+            >
+              <div className="flex flex-col items-center gap-1 text-center">
+                <span className="text-[#C8C8C8] text-[12px] font-medium leading-[105%] tracking-[-0.36px]">LOCATION</span>
+                <span className="text-white text-[12px] font-medium leading-[130%] tracking-[-0.36px]">
+                  Thanh Xuan, Hanoi, Vietnam
+                </span>
+              </div>
+              <div className="flex flex-col items-center gap-1 text-center">
+                <span className="text-[#C8C8C8] text-[12px] font-medium leading-[105%] tracking-[-0.36px]">EMAIL</span>
+                <span className="text-white text-[12px] font-medium leading-[130%] tracking-[-0.36px]">
+                  tiendn.fw@gmail.com
+                </span>
+              </div>
+              <div className="flex flex-col items-center gap-1 text-center">
+                <span className="text-[#C8C8C8] text-[12px] font-medium leading-[105%] tracking-[-0.36px]">LINKEDIN</span>
+                <span className="text-white text-[12px] font-medium leading-[130%] tracking-[-0.36px]">
+                  linkedin.com/in/tienduongngoc/
+                </span>
               </div>
             </motion.div>
           </div>
