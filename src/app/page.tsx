@@ -1,3 +1,7 @@
+'use client';
+
+import ProfileCard from '@/components/ui/ProfileCard';
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-black relative overflow-hidden">
@@ -46,7 +50,12 @@ export default function Home() {
 
       {/* Content Sections */}
       <div className="relative z-10">
-        <section className="h-screen w-full"></section>
+        <section className="h-screen w-full flex items-center justify-center">
+          <div className="flex flex-col items-center">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-8">My Portfolio</h1>
+            <ProfileCard />
+          </div>
+        </section>
         <section className="h-screen w-full"></section>
       </div>
     </main>
