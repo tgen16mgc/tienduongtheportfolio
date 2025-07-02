@@ -11,6 +11,8 @@ const nextConfig = {
       },
     ],
   },
+  // Digital Ocean-friendly configuration
+  output: 'standalone',
 };
 
 module.exports = nextConfig; 
