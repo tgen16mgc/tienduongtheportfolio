@@ -1,7 +1,5 @@
 'use client';
 
-import ProfileCard from '@/components/ui/ProfileCard';
-
 export default function Home() {
   return (
     <main className="min-h-screen bg-black relative overflow-hidden">
@@ -51,7 +49,7 @@ export default function Home() {
       {/* Content Sections */}
       <div className="relative z-10">
         <section className="h-screen w-full flex items-center justify-center">
-          <ProfileCard />
+          {/* ProfileCard component has been removed */}
         </section>
         <section className="h-screen w-full"></section>
       </div>
