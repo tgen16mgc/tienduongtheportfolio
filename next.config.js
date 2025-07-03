@@ -14,6 +14,16 @@ const nextConfig = {
         hostname: 'raw.githubusercontent.com',
         pathname: '/tgen16mgc/tienduongtheportfolio/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.statically.io',
+        pathname: '/gh/tgen16mgc/tienduongtheportfolio/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.ibb.co',
+        pathname: '/**',
+      },
     ],
   },
   // Digital Ocean-friendly configuration
