@@ -1,5 +1,7 @@
 'use client';
 
+import ProfileCard from '../components/ui/ProfileCard';
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-black relative overflow-hidden">
@@ -48,10 +50,101 @@ export default function Home() {
 
       {/* Content Sections */}
       <div className="relative z-10">
-        <section className="h-screen w-full flex items-center justify-center">
-          {/* ProfileCard component has been removed */}
+        <section className="min-h-screen w-full pt-[calc(5vh+32px)] px-[3%]">
+          {/* Main flexbox container with same padding as navigation */}
+          <div className="max-w-[1440px] w-full mx-auto">
+            {/* Frame 1 */}
+            <div 
+              style={{
+                display: 'flex',
+                width: '100%',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                gap: '23px'
+              }}
+            >
+              {/* Text content box */}
+              <div 
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  gap: '13px',
+                  alignSelf: 'stretch'
+                }}
+              >
+                {/* Marketer title with (n) */}
+                <div 
+                  style={{
+                    alignSelf: 'stretch',
+                    display: 'flex',
+                    alignItems: 'baseline'
+                  }}
+                >
+                  <span 
+                    style={{
+                      color: '#FFF',
+                      fontFamily: '"Rethink Sans", sans-serif',
+                      fontSize: '44px',
+                      fontStyle: 'normal',
+                      fontWeight: 600,
+                      lineHeight: '105%',
+                      letterSpacing: '-1.32px'
+                    }}
+                  >
+                    Marketer.
+                  </span>
+                  <span 
+                    style={{
+                      color: '#FFF',
+                      fontFamily: '"Rethink Sans", sans-serif',
+                      fontSize: '14px',
+                      fontStyle: 'normal',
+                      fontWeight: 600,
+                      lineHeight: '105%',
+                      letterSpacing: '-0.42px',
+                      marginLeft: '4px'
+                    }}
+                  >
+                    (n)
+                  </span>
+                </div>
+
+                {/* Qualities list */}
+                <div 
+                  style={{
+                    display: 'flex',
+                    width: '142px',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    gap: '3px'
+                  }}
+                >
+                  {['Purposeful', 'Mindful', 'Wild', 'Hungry', 'Relentless', 'Thrive on challenges'].map((quality, index) => (
+                    <div 
+                      key={index}
+                      style={{
+                        alignSelf: 'stretch',
+                        color: '#FFF',
+                        fontFamily: '"Rethink Sans", sans-serif',
+                        fontSize: '16px',
+                        fontStyle: 'normal',
+                        fontWeight: 400,
+                        lineHeight: '105%',
+                        letterSpacing: '-0.48px'
+                      }}
+                    >
+                      {quality}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Profile Card */}
+              <ProfileCard />
+            </div>
+          </div>
         </section>
-        <section className="h-screen w-full"></section>
       </div>
     </main>
   );

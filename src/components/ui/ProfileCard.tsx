@@ -1,115 +1,401 @@
-'use client';
+"use client";
 
-import React from "react";
-import styled from "styled-components";
-import Image from "next/image";
+import React from 'react';
+import Link from 'next/link';
+import ResponsivePicture from './ResponsivePicture';
 
-const CardContainer = styled.div`
-  width: 200px;
-  height: 372px;
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-`;
-
-const BackgroundImage = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-`;
-
-const ContentContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  padding: 0 34px 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-`;
-
-const ProfileName = styled.h2`
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 4px;
-  text-align: center;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-`;
-
-const ProfileTitle = styled.p`
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 12px;
-  text-align: center;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-`;
-
-const SocialLinks = styled.div`
-  display: flex;
-  gap: 12px;
-  margin-bottom: 16px;
-`;
-
-const SocialLink = styled.a`
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
-  }
-`;
-
-const ProfileCard = () => {
+const ProfileCard: React.FC = () => {
   return (
-    <CardContainer>
-      <BackgroundImage>
-        <Image
-          src="/images/Card.png"
+    <div 
+      data-layer="Frame 49" 
+      className="Frame49 relative" 
+      style={{ 
+        width: '200px', 
+        height: '372px', 
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+        position: 'relative',
+        paddingBottom: '16px'
+      }}
+    >
+      <div className="absolute top-0 left-0 w-full h-full">
+        <ResponsivePicture
+          basePath="/images"
+          filename="Card"
           alt="Card Background"
           width={200}
           height={372}
-          priority={true}
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          className="w-full h-full"
+          imgClassName="object-cover"
+          useCdn={true}
+          cdnType="github"
         />
-      </BackgroundImage>
-      <ContentContainer>
-        <ProfileName>Tien Duong</ProfileName>
-        <ProfileTitle>Full Stack Developer</ProfileTitle>
-        <SocialLinks>
-          <SocialLink href="https://github.com/tgen16mgc" target="_blank" rel="noopener noreferrer">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C6.477 2 2 6.477 2 12C2 16.418 4.865 20.166 8.84 21.49C9.34 21.581 9.5 21.27 9.5 21.008C9.5 20.768 9.492 20.151 9.489 19.309C6.73 19.91 6.14 17.97 6.14 17.97C5.68 16.811 5.03 16.5 5.03 16.5C4.12 15.88 5.1 15.9 5.1 15.9C6.1 15.97 6.63 16.93 6.63 16.93C7.5 18.45 8.97 18.02 9.54 17.76C9.63 17.11 9.89 16.67 10.17 16.42C7.95 16.17 5.62 15.31 5.62 11.5C5.62 10.39 6 9.5 6.65 8.79C6.55 8.54 6.2 7.5 6.75 6.15C6.75 6.15 7.59 5.88 9.5 7.17C10.29 6.95 11.15 6.84 12 6.84C12.85 6.84 13.71 6.95 14.5 7.17C16.41 5.88 17.25 6.15 17.25 6.15C17.8 7.5 17.45 8.54 17.35 8.79C18 9.5 18.38 10.39 18.38 11.5C18.38 15.32 16.04 16.16 13.81 16.41C14.17 16.72 14.5 17.33 14.5 18.26C14.5 19.6 14.5 20.68 14.5 21C14.5 21.27 14.66 21.58 15.17 21.49C19.14 20.16 22 16.42 22 12C22 6.477 17.523 2 12 2Z" fill="currentColor"/>
-            </svg>
-          </SocialLink>
-          <SocialLink href="https://linkedin.com/in/tienduong" target="_blank" rel="noopener noreferrer">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M19 3C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19ZM18.5 18.5V13.2C18.5 12.3354 18.1565 11.5062 17.5452 10.8948C16.9338 10.2835 16.1046 9.94 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17C14.6813 12.17 15.0374 12.3175 15.2999 12.5801C15.5625 12.8426 15.71 13.1987 15.71 13.57V18.5H18.5ZM6.88 8.56C7.32556 8.56 7.75288 8.383 8.06794 8.06794C8.383 7.75288 8.56 7.32556 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19C6.43178 5.19 6.00193 5.36805 5.68499 5.68499C5.36805 6.00193 5.19 6.43178 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56ZM8.27 18.5V10.13H5.5V18.5H8.27Z" fill="currentColor"/>
-            </svg>
-          </SocialLink>
-          <SocialLink href="mailto:contact@tienduong.com" target="_blank" rel="noopener noreferrer">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="currentColor"/>
-            </svg>
-          </SocialLink>
-        </SocialLinks>
-      </ContentContainer>
-    </CardContainer>
+      </div>
+      
+      <div 
+        data-layer="Frame 48" 
+        className="Frame48 relative" 
+        style={{
+          width: '131.41px',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+          gap: '26px'
+        }}
+      >
+        <div 
+          data-layer="Frame 47" 
+          className="Frame47" 
+          style={{
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-start',
+            alignItems: 'center',
+            gap: '26px'
+          }}
+        >
+          <div 
+            data-layer="Frame 11" 
+            className="Frame11" 
+            style={{
+              width: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+              gap: '30px'
+            }}
+          >
+            <div 
+              data-layer="Frame 23" 
+              className="Frame23" 
+              style={{
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-start',
+                alignItems: 'center',
+                gap: '12px'
+              }}
+            >
+              <div 
+                data-layer="Frame 22" 
+                className="Frame22" 
+                style={{
+                  width: '100%',
+                  maxWidth: '113px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  gap: '3px',
+                  margin: '0 auto'
+                }}
+              >
+                <div 
+                  data-layer="Quote" 
+                  className="Quote" 
+                  style={{
+                    width: '100%',
+                    textAlign: 'center',
+                    color: 'white',
+                    fontSize: '14px',
+                    fontFamily: 'SF Pro Text',
+                    fontWeight: 600,
+                    lineHeight: '14.70px',
+                    whiteSpace: 'nowrap',
+                    display: 'flex',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <span>Dương Ngọc Tiên</span>
+                </div>
+                <div 
+                  data-layer="Quote" 
+                  className="Quote" 
+                  style={{
+                    width: '100%',
+                    textAlign: 'center',
+                    color: '#ACACAC',
+                    fontSize: '8.95px',
+                    fontFamily: 'Rethink Sans',
+                    fontWeight: 400,
+                    lineHeight: '9.39px',
+                    whiteSpace: 'nowrap',
+                    display: 'flex',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <span>Planning | Marketing Intern</span>
+                </div>
+              </div>
+              <div 
+                data-layer="Frame 3" 
+                className="Frame3" 
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  gap: '7px'
+                }}
+              >
+                <Link 
+                  href="https://www.linkedin.com/in/tienduongngoc/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <div data-svg-wrapper data-layer="Social Icons" data-color="Negative" data-platform="LinkedIn" className="SocialIcons relative">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clipPath="url(#clip0_42_79)">
+                    <path d="M13.6616 0.422058H1.71757C1.14542 0.422058 0.68277 0.873758 0.68277 1.43222V13.4255C0.68277 13.984 1.14542 14.4385 1.71757 14.4385H13.6616C14.2338 14.4385 14.6992 13.984 14.6992 13.4283V1.43222C14.6992 0.873758 14.2338 0.422058 13.6616 0.422058ZM4.84115 12.3661H2.76059V5.67547H4.84115V12.3661ZM3.80087 4.76385C3.1329 4.76385 2.5936 4.22455 2.5936 3.55932C2.5936 2.89409 3.1329 2.35479 3.80087 2.35479C4.4661 2.35479 5.0054 2.89409 5.0054 3.55932C5.0054 4.22181 4.4661 4.76385 3.80087 4.76385ZM12.6268 12.3661H10.549V9.11386C10.549 8.33913 10.5353 7.33991 9.46765 7.33991C8.38631 7.33991 8.22206 8.18583 8.22206 9.05911V12.3661H6.14697V5.67547H8.13993V6.58982H8.1673C8.4438 6.0642 9.12272 5.50848 10.1329 5.50848C12.2381 5.50848 12.6268 6.89369 12.6268 8.69502V12.3661Z" fill="#878787"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_42_79">
+                    <rect width="14.0164" height="14.0164" fill="white" transform="translate(0.68277 0.422058)"/>
+                    </clipPath>
+                    </defs>
+                    </svg>
+                  </div>
+                </Link>
+                <Link 
+                  href="mailto:tiendn.fw@gmail.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <div data-svg-wrapper data-layer="Social" data-social="Gmail" data-style="Black" className="Social relative">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clipPath="url(#clip0_42_80)">
+                    <path d="M3.88471 12.689H1.65483C1.12762 12.689 0.699165 12.2622 0.699165 11.7334V3.61031C0.699165 2.42847 2.04665 1.75473 2.99276 2.46351L7.70737 5.99939L12.422 2.46351C13.3665 1.75473 14.7156 2.42847 14.7156 3.61031V11.7334C14.7156 12.2606 14.2887 12.689 13.7599 12.689H11.53V7.2736L7.70737 10.1406L3.88472 7.2736L3.88471 12.689Z" fill="#878787"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_42_80">
+                    <rect width="14.0164" height="14.0164" fill="white" transform="translate(0.699165 0.422058)"/>
+                    </clipPath>
+                    </defs>
+                    </svg>
+                  </div>
+                </Link>
+                <Link 
+                  href="https://www.facebook.com/tienduong.0822/?locale=vi_VN" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <div data-svg-wrapper data-layer="Social Icons" data-color="Negative" data-platform="Facebook" className="SocialIcons relative">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clipPath="url(#clip0_42_81)">
+                    <path d="M7.72376 0.422058C3.85327 0.422058 0.715561 3.55977 0.715561 7.43025C0.715561 10.7168 2.97837 13.4747 6.03086 14.2321V9.57196H4.58577V7.43025H6.03086V6.50742C6.03086 4.12211 7.1104 3.01649 9.45226 3.01649C9.8963 3.01649 10.6624 3.10367 10.9758 3.19058V5.13185C10.8104 5.11447 10.5231 5.10578 10.1663 5.10578C9.01719 5.10578 8.57315 5.54113 8.57315 6.67281V7.43025H10.8623L10.469 9.57196H8.57315V14.3872C12.0433 13.9681 14.7322 11.0134 14.7322 7.43025C14.732 3.55977 11.5942 0.422058 7.72376 0.422058Z" fill="#878787"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_42_81">
+                    <rect width="14.0164" height="14.0164" fill="white" transform="translate(0.715561 0.422058)"/>
+                    </clipPath>
+                    </defs>
+                    </svg>
+                  </div>
+                </Link>
+              </div>
+            </div>
+            <div 
+              data-layer="Frame 21" 
+              className="Frame21" 
+              style={{
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-start',
+                alignItems: 'center',
+                gap: '14px'
+              }}
+            >
+              <div 
+                data-layer="Frame 17" 
+                className="Frame17" 
+                style={{
+                  width: '62px',
+                  height: '16px',
+                  position: 'relative',
+                  background: 'white',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                <div 
+                  data-layer="IMC plan" 
+                  className="ImcPlan" 
+                  style={{
+                    textAlign: 'center',
+                    color: 'black',
+                    fontSize: '8px',
+                    fontFamily: 'Rethink Sans',
+                    fontWeight: 400,
+                    lineHeight: '8.40px',
+                    whiteSpace: 'nowrap'
+                  }}
+                >
+                  IMC plan
+                </div>
+              </div>
+              <div 
+                data-layer="Frame 18" 
+                className="Frame18" 
+                style={{
+                  width: '84px',
+                  height: '16px',
+                  position: 'relative',
+                  background: 'white',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                <div 
+                  data-layer="Social media plan" 
+                  className="SocialMediaPlan" 
+                  style={{
+                    textAlign: 'center',
+                    color: 'black',
+                    fontSize: '8px',
+                    fontFamily: 'Rethink Sans',
+                    fontWeight: 400,
+                    lineHeight: '8.40px',
+                    whiteSpace: 'nowrap'
+                  }}
+                >
+                  Social media plan
+                </div>
+              </div>
+              <div 
+                data-layer="Frame 19" 
+                className="Frame19" 
+                style={{
+                  width: '104px',
+                  height: '16px',
+                  position: 'relative',
+                  background: 'white',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                <div 
+                  data-layer="Market & Trend Research" 
+                  className="MarketTrendResearch" 
+                  style={{
+                    textAlign: 'center',
+                    color: 'black',
+                    fontSize: '8px',
+                    fontFamily: 'Rethink Sans',
+                    fontWeight: 400,
+                    lineHeight: '8.40px',
+                    whiteSpace: 'nowrap'
+                  }}
+                >
+                  Market & Trend Research
+                </div>
+              </div>
+              <div 
+                data-layer="Frame 20" 
+                className="Frame20" 
+                style={{
+                  width: '90px',
+                  height: '16px',
+                  position: 'relative',
+                  background: 'white',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                <div 
+                  data-layer="Design & Visualizing" 
+                  className="DesignVisualizing" 
+                  style={{
+                    textAlign: 'center',
+                    color: 'black',
+                    fontSize: '8px',
+                    fontFamily: 'Rethink Sans',
+                    fontWeight: 400,
+                    lineHeight: '8.40px',
+                    whiteSpace: 'nowrap'
+                  }}
+                >
+                  Design & Visualizing
+                </div>
+              </div>
+            </div>
+            <div 
+              data-layer="Frame 7" 
+              className="Frame7" 
+              style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '4px'
+              }}
+            >
+              <div 
+                className="status-dot-container"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '6px',
+                  height: '6px',
+                  marginRight: '2px'
+                }}
+              >
+                <div 
+                  className="green-dot"
+                  style={{
+                    width: '6px',
+                    height: '6px',
+                    borderRadius: '50%',
+                    backgroundColor: '#4BDD74',
+                    boxShadow: '0px 0px 4px rgba(75, 221, 116, 0.6)'
+                  }}
+                ></div>
+              </div>
+              <div 
+                data-layer="Open to new opportunities" 
+                className="OpenToNewOpportunities" 
+                style={{
+                  color: '#9F9F9F',
+                  fontSize: '10.16px',
+                  fontFamily: 'Rethink Sans',
+                  fontWeight: 400,
+                  lineHeight: '10.66px',
+                  whiteSpace: 'nowrap',
+                  textAlign: 'center'
+                }}
+              >
+                Open to new opportunities
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
