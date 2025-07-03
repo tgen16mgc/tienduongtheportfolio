@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import ResponsivePicture from './ResponsivePicture';
 
@@ -20,16 +21,12 @@ const ProfileCard: React.FC = () => {
       }}
     >
       <div className="absolute top-0 left-0 w-full h-full">
-        <ResponsivePicture
-          basePath="/images"
-          filename="Card"
+        <Image 
+          src="/images/Card.png"
           alt="Card Background"
-          width={200}
-          height={372}
-          className="w-full h-full"
-          imgClassName="object-cover"
-          useCdn={true}
-          cdnType="jsdelivr"
+          fill
+          className="object-cover"
+          priority
         />
       </div>
       
