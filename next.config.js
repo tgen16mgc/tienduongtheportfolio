@@ -7,7 +7,7 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'cdn.jsdelivr.net',
-        pathname: '/gh/tgen16mgc/tienduongtheportfolio/**',
+        pathname: '/gh/**',
       },
       {
         protocol: 'https',

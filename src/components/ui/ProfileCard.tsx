@@ -22,7 +22,7 @@ const ProfileCard: React.FC = () => {
     >
       <div className="absolute top-0 left-0 w-full h-full">
         <Image 
-          src="https://i.ibb.co/kKVYgzh/Card.png"
+          src="https://cdn.jsdelivr.net/gh/tgen16mgc/tienduongtheportfolio@8d9e6ae9e5c29210987af371ecccddc8322fe2f3/public/images/Card.png"
           alt="Card Background"
           fill
           className="object-cover"
