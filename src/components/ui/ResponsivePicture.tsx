@@ -61,12 +61,12 @@ export default function ResponsivePicture({
         baseUrl = '/cdn-images';
         break;
       case 'jsdelivr':
-        // Use the public/images path for jsDelivr
-        baseUrl = `https://cdn.jsdelivr.net/gh/${GITHUB_USER}/${GITHUB_REPO}@${GITHUB_BRANCH}/public/images`;
+        // Use jsDelivr CDN
+        baseUrl = `https://cdn.jsdelivr.net/gh/${GITHUB_USER}/${GITHUB_REPO}@${GITHUB_BRANCH}/public${basePath}`;
         break;
       case 'github':
-        // Use GitHub Pages directly
-        baseUrl = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/public/images`;
+        // Use GitHub raw content directly
+        baseUrl = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/public${basePath}`;
         break;
       case 'cloudinary':
         baseUrl = `https://res.cloudinary.com/your-cloud-name/image/upload`;

@@ -3,11 +3,16 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['localhost'],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**',
+        hostname: 'cdn.jsdelivr.net',
+        pathname: '/gh/tgen16mgc/tienduongtheportfolio/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+        pathname: '/tgen16mgc/tienduongtheportfolio/**',
       },
     ],
   },

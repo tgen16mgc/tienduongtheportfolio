@@ -29,7 +29,7 @@ const ProfileCard: React.FC = () => {
           className="w-full h-full"
           imgClassName="object-cover"
           useCdn={true}
-          cdnType="github"
+          cdnType="jsdelivr"
         />
       </div>
       
