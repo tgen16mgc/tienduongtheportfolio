@@ -95,6 +95,20 @@ module.exports = {
           '50%': { transform: 'rotate(-180deg) scale(1.1)', opacity: '0.03' },
           '100%': { transform: 'rotate(-360deg) scale(1)', opacity: '0.02' },
         },
+        cardGlow: {
+          '0%': { 
+            boxShadow: '0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(200, 230, 255, 0.3), 0 0 30px rgba(180, 220, 255, 0.2)',
+            transform: 'scale(1)'
+          },
+          '50%': { 
+            boxShadow: '0 0 15px rgba(255, 255, 255, 0.6), 0 0 30px rgba(200, 230, 255, 0.4), 0 0 45px rgba(160, 210, 255, 0.3)',
+            transform: 'scale(1.02)'
+          },
+          '100%': { 
+            boxShadow: '0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(200, 230, 255, 0.3), 0 0 30px rgba(180, 220, 255, 0.2)',
+            transform: 'scale(1)'
+          }
+        },
       },
       animation: {
         mesh: 'meshMove 40s cubic-bezier(0.4, 0, 0.2, 1) infinite',
@@ -113,6 +127,7 @@ module.exports = {
         'mesh-node-13': 'meshNode13 56s cubic-bezier(0.4, 0, 0.2, 1) infinite',
         'ambient-1': 'ambient1 80s cubic-bezier(0.4, 0, 0.2, 1) infinite',
         'ambient-2': 'ambient2 75s cubic-bezier(0.4, 0, 0.2, 1) infinite',
+        'card-glow': 'cardGlow 3s ease-in-out infinite',
       },
     },
   },
