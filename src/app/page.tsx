@@ -53,99 +53,191 @@ export default function Home() {
         <section className="min-h-screen w-full pt-[calc(5vh+32px)] px-[3%]">
           {/* Main flexbox container with same padding as navigation */}
           <div className="max-w-[1440px] w-full mx-auto">
-            {/* Frame 1 */}
-            <div 
-              style={{
-                display: 'flex',
-                width: '100%',
-                flexDirection: 'column',
-                alignItems: 'flex-start',
-                gap: '23px'
-              }}
-            >
-              {/* Text content box */}
-              <div 
+            {/* Main Hero Layout */}
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 w-full">
+              {/* Left Side - Existing Content */}
+              <div
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'flex-start',
-                  gap: '13px',
-                  alignSelf: 'stretch'
+                  gap: '23px',
+                  flex: '0 0 auto'
                 }}
               >
-                {/* Marketer title with (n) */}
-                <div 
-                  style={{
-                    alignSelf: 'stretch',
-                    display: 'flex',
-                    alignItems: 'baseline'
-                  }}
-                >
-                  <span 
-                    style={{
-                      color: '#FFF',
-                      fontFamily: '"Rethink Sans", sans-serif',
-                      fontSize: '44px',
-                      fontStyle: 'normal',
-                      fontWeight: 600,
-                      lineHeight: '105%',
-                      letterSpacing: '-1.32px'
-                    }}
-                  >
-                    Marketer.
-                  </span>
-                  <span 
-                    style={{
-                      color: '#FFF',
-                      fontFamily: '"Rethink Sans", sans-serif',
-                      fontSize: '14px',
-                      fontStyle: 'normal',
-                      fontWeight: 600,
-                      lineHeight: '105%',
-                      letterSpacing: '-0.42px',
-                      marginLeft: '4px'
-                    }}
-                  >
-                    (n)
-                  </span>
-                </div>
-
-                {/* Qualities list */}
-                <div 
+                {/* Text content box */}
+                <div
                   style={{
                     display: 'flex',
-                    width: '142px',
                     flexDirection: 'column',
                     alignItems: 'flex-start',
-                    gap: '3px'
+                    gap: '13px'
                   }}
                 >
-                  {['Purposeful', 'Mindful', 'Wild', 'Hungry', 'Relentless', 'Thrive on challenges'].map((quality, index) => (
-                    <div 
-                      key={index}
+                  {/* Marketer title with (n) */}
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'baseline'
+                    }}
+                  >
+                    <span
                       style={{
-                        alignSelf: 'stretch',
                         color: '#FFF',
                         fontFamily: '"Rethink Sans", sans-serif',
-                        fontSize: '16px',
+                        fontSize: 'clamp(32px, 5vw, 44px)',
                         fontStyle: 'normal',
-                        fontWeight: 400,
+                        fontWeight: 600,
                         lineHeight: '105%',
-                        letterSpacing: '-0.48px'
+                        letterSpacing: '-1.32px'
                       }}
                     >
-                      {quality}
-                    </div>
-                  ))}
+                      Marketer.
+                    </span>
+                    <span
+                      style={{
+                        color: '#FFF',
+                        fontFamily: '"Rethink Sans", sans-serif',
+                        fontSize: '14px',
+                        fontStyle: 'normal',
+                        fontWeight: 600,
+                        lineHeight: '105%',
+                        letterSpacing: '-0.42px',
+                        marginLeft: '4px'
+                      }}
+                    >
+                      (n)
+                    </span>
+                  </div>
+
+                  {/* Qualities list */}
+                  <div
+                    style={{
+                      display: 'flex',
+                      width: '142px',
+                      flexDirection: 'column',
+                      alignItems: 'flex-start',
+                      gap: '3px'
+                    }}
+                  >
+                    {['Purposeful', 'Mindful', 'Wild', 'Hungry', 'Relentless', 'Thrive on challenges'].map((quality, index) => (
+                      <div
+                        key={index}
+                        style={{
+                          alignSelf: 'stretch',
+                          color: '#FFF',
+                          fontFamily: '"Rethink Sans", sans-serif',
+                          fontSize: '16px',
+                          fontStyle: 'normal',
+                          fontWeight: 400,
+                          lineHeight: '105%',
+                          letterSpacing: '-0.48px'
+                        }}
+                      >
+                        {quality}
+                      </div>
+                    ))}
+                  </div>
                 </div>
+
+                {/* Profile Card */}
+                <ProfileCard />
               </div>
 
-              {/* Profile Card */}
-              <ProfileCard />
+              {/* Right Side - New Figma Design */}
+              <div className="flex flex-col gap-7 flex-1 max-w-4xl">
+                {/* Top Section: Hi there! I am Tien Duong */}
+                <div className="flex flex-col gap-5">
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-4 flex-wrap">
+                      <span className="text-white font-bold text-[clamp(40px,6vw,64px)] leading-[105%] tracking-[-1.92px] font-[family-name:Rethink_Sans]">
+                        Hi there! I am
+                      </span>
+                      <div className="relative">
+                        {/* Glass Card for Tien Duong */}
+                        <div className="relative px-11 py-3.5 rounded-[30px] border border-white/10 bg-white/5 backdrop-blur-[75px]">
+                          <span className="text-white font-medium text-[clamp(24px,3vw,31px)] leading-[105%] tracking-[-0.933px] font-[family-name:Rethink_Sans]">
+                            Tien Duong
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-5 flex-wrap">
+                      <span className="text-white font-bold text-[clamp(40px,6vw,64px)] leading-[105%] tracking-[-1.92px] font-[family-name:Rethink_Sans]">
+                        a
+                      </span>
+                      <div className="relative">
+                        {/* Glass Card for Marketer (& Planner) */}
+                        <div className="relative px-8 py-3 rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-[79px]">
+                          <span className="text-white font-medium text-[clamp(32px,4vw,42px)] leading-[105%] tracking-[-1.268px] font-[family-name:Rethink_Sans]">
+                            Marketer (& Planner)
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <span className="text-white font-bold text-[clamp(40px,6vw,64px)] leading-[105%] tracking-[-1.92px] font-[family-name:Rethink_Sans]">
+                      intern.
+                    </span>
+                  </div>
+                </div>
+
+                {/* Bottom Section: driven by desire to brilliantly make */}
+                <div className="flex flex-col gap-1">
+                  <div className="py-2.5">
+                    <span className="text-white font-bold text-[clamp(40px,6vw,63px)] leading-[105%] tracking-[-1.89px] font-[family-name:Rethink_Sans]">
+                      driven by desire to brilliantly make
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-4 flex-wrap">
+                    {/* Real Card */}
+                    <div className="relative">
+                      <div className="relative px-7 py-3 rounded-[26px] border border-white/10 bg-white/5 backdrop-blur-[66px]">
+                        <span className="text-white font-medium text-[clamp(20px,2.5vw,27px)] leading-[105%] tracking-[-0.819px] font-[family-name:Rethink_Sans]">
+                          Real
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Meaningful Card */}
+                    <div className="relative">
+                      <div className="relative px-8 py-3 rounded-[26px] border border-white/10 bg-white/5 backdrop-blur-[66px]">
+                        <span className="text-white font-medium text-[clamp(20px,2.5vw,27px)] leading-[105%] tracking-[-0.819px] font-[family-name:Rethink_Sans]">
+                          Meaningful
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Powerful Card */}
+                    <div className="relative">
+                      <div className="relative px-7 py-3 rounded-[26px] border border-white/10 bg-white/5 backdrop-blur-[66px]">
+                        <span className="text-white font-medium text-[clamp(20px,2.5vw,27px)] leading-[105%] tracking-[-0.819px] font-[family-name:Rethink_Sans]">
+                          Powerful
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Impact with gradient */}
+                    <span
+                      className="font-bold text-[clamp(40px,6vw,64px)] leading-[105%] tracking-[-1.92px] font-[family-name:Rethink_Sans]"
+                      style={{
+                        background: 'linear-gradient(90deg, #FFF 0%, #838383 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text'
+                      }}
+                    >
+                      impact.
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
       </div>
     </main>
   );
-} 
+}
