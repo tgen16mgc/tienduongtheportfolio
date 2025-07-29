@@ -100,10 +100,10 @@ const ProfileCard: React.FC = () => {
                     width: '100%',
                     textAlign: 'center',
                     color: 'white',
-                    fontSize: '14px',
+                    fontSize: 'clamp(12px, 3vw, 16px)',
                     fontFamily: 'SF Pro Text',
                     fontWeight: 600,
-                    lineHeight: '14.70px',
+                    lineHeight: 'clamp(1.2, 1.3, 1.2)',
                     whiteSpace: 'nowrap',
                     display: 'flex',
                     justifyContent: 'center'
@@ -117,11 +117,11 @@ const ProfileCard: React.FC = () => {
                   style={{
                     width: '100%',
                     textAlign: 'center',
-                    color: '#ACACAC',
-                    fontSize: '8.95px',
+                    color: '#C5C5C5',
+                    fontSize: 'clamp(10px, 2.5vw, 10px)', 
                     fontFamily: 'Rethink Sans',
                     fontWeight: 400,
-                    lineHeight: '9.39px',
+                    lineHeight: 'clamp(1.2, 1.3, 1.2)',
                     whiteSpace: 'nowrap',
                     display: 'flex',
                     justifyContent: 'center'
@@ -240,10 +240,10 @@ const ProfileCard: React.FC = () => {
                   style={{
                     textAlign: 'center',
                     color: 'black',
-                    fontSize: '8px',
+                    fontSize: 'clamp(9px, 2vw, 10px)',
                     fontFamily: 'Rethink Sans',
                     fontWeight: 400,
-                    lineHeight: '8.40px',
+                    lineHeight: 'clamp(1.1, 1.2, 1.1)',
                     whiteSpace: 'nowrap'
                   }}
                 >
@@ -270,10 +270,10 @@ const ProfileCard: React.FC = () => {
                   style={{
                     textAlign: 'center',
                     color: 'black',
-                    fontSize: '8px',
+                    fontSize: 'clamp(9px, 2vw, 10px)',
                     fontFamily: 'Rethink Sans',
                     fontWeight: 400,
-                    lineHeight: '8.40px',
+                    lineHeight: 'clamp(1.1, 1.2, 1.1)',
                     whiteSpace: 'nowrap'
                   }}
                 >
@@ -300,10 +300,10 @@ const ProfileCard: React.FC = () => {
                   style={{
                     textAlign: 'center',
                     color: 'black',
-                    fontSize: '8px',
+                    fontSize: 'clamp(9px, 2vw, 10px)',
                     fontFamily: 'Rethink Sans',
                     fontWeight: 400,
-                    lineHeight: '8.40px',
+                    lineHeight: 'clamp(1.1, 1.2, 1.1)',
                     whiteSpace: 'nowrap'
                   }}
                 >
@@ -330,10 +330,10 @@ const ProfileCard: React.FC = () => {
                   style={{
                     textAlign: 'center',
                     color: 'black',
-                    fontSize: '8px',
+                    fontSize: 'clamp(9px, 2vw, 10px)',
                     fontFamily: 'Rethink Sans',
                     fontWeight: 400,
-                    lineHeight: '8.40px',
+                    lineHeight: 'clamp(1.1, 1.2, 1.1)',
                     whiteSpace: 'nowrap'
                   }}
                 >
@@ -378,11 +378,11 @@ const ProfileCard: React.FC = () => {
                 data-layer="Open to new opportunities" 
                 className="OpenToNewOpportunities" 
                 style={{
-                  color: '#9F9F9F',
-                  fontSize: '10.16px',
+                  color: '#C5C5C5',
+                  fontSize: 'clamp(10px, 2.5vw, 11px)',
                   fontFamily: 'Rethink Sans',
                   fontWeight: 400,
-                  lineHeight: '10.66px',
+                  lineHeight: 'clamp(1.2, 1.3, 1.2)',
                   whiteSpace: 'nowrap',
                   textAlign: 'center'
                 }}

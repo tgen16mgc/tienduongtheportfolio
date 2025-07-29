@@ -17,7 +17,7 @@ interface ResponsivePictureProps {
   loading?: 'lazy' | 'eager';
   priority?: boolean;
   useCdn?: boolean;
-  cdnType?: 'cloudflare' | 'jsdelivr' | 'cloudinary' | 'vercel' | 'github';
+  cdnType?: 'cloudflare' | 'jsdelivr' | 'cloudinary' | 'vercel' | 'github' | 'statically';
 }
 
 const SIZES: ImageSize[] = [
@@ -47,7 +47,7 @@ export default function ResponsivePicture({
   loading = 'lazy',
   priority = false,
   useCdn = false,
-  cdnType = 'github',
+  cdnType = 'statically',
 }: ResponsivePictureProps) {
   // Determine loading attribute
   const loadingAttr = priority ? 'eager' : loading;
@@ -67,6 +67,10 @@ export default function ResponsivePicture({
       case 'github':
         // Use GitHub raw content directly
         baseUrl = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/public${basePath}`;
+        break;
+      case 'statically':
+        // Use Statically CDN which works well with GitHub
+        baseUrl = `https://cdn.statically.io/gh/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/public${basePath}`;
         break;
       case 'cloudinary':
         baseUrl = `https://res.cloudinary.com/your-cloud-name/image/upload`;
