@@ -7,12 +7,31 @@ module.exports = {
   ],
   theme: {
     extend: {
+      // Mobile-optimized breakpoints
+      screens: {
+        'xs': '375px',
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+        // Touch device specific
+        'touch': { 'raw': '(hover: none) and (pointer: coarse)' },
+        'no-touch': { 'raw': '(hover: hover) and (pointer: fine)' },
+      },
       fontFamily: {
         sans: ['Rethink Sans', 'var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       colors: {
         light: '#F5F5F5',
         dark: '#0A0A0A',
+      },
+      // Mobile-optimized spacing
+      spacing: {
+        'safe-top': 'env(safe-area-inset-top)',
+        'safe-bottom': 'env(safe-area-inset-bottom)',
+        'safe-left': 'env(safe-area-inset-left)',
+        'safe-right': 'env(safe-area-inset-right)',
       },
       keyframes: {
         meshMove: {
@@ -128,6 +147,7 @@ module.exports = {
         'ambient-1': 'ambient1 80s cubic-bezier(0.4, 0, 0.2, 1) infinite',
         'ambient-2': 'ambient2 75s cubic-bezier(0.4, 0, 0.2, 1) infinite',
         'card-glow': 'cardGlow 3s ease-in-out infinite',
+        'touch-feedback': 'touchFeedback 0.15s ease-out',
       },
     },
   },

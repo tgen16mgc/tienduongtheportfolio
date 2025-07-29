@@ -74,6 +74,13 @@ const HeroIntroduction: React.FC = () => {
 
   return (
     <div className="flex w-full flex-col items-center shrink-0 relative px-4 lg:px-0" style={{ gap: 'clamp(1.5rem, 4vw, 2.5rem)' }}>
+      {/* Mobile-specific landscape detection and adjustments */}
+      <style jsx>{`
+        @media (max-height: 500px) and (orientation: landscape) {
+          .hero-container { gap: clamp(1rem, 3vw, 1.5rem); }
+          .hero-text { font-size: clamp(18px, 6vw, 48px); }
+        }
+      `}</style>
       {/* Main Introduction Section - Mobile-first hierarchy */}
       <div className="flex flex-col items-start self-stretch relative" style={{ gap: 'clamp(1rem, 3vw, 1.75rem)' }}>
         {/* Title and Cards Section - Mobile-optimized spacing */}
@@ -110,13 +117,14 @@ const HeroIntroduction: React.FC = () => {
             {/* Marketer Card - Mobile content-focused design */}
             <div className="w-full max-w-[280px] sm:max-w-[380px] lg:max-w-[438px] h-[50px] sm:h-[58px] lg:h-[67px] relative min-w-0">
               {/* Clean Card Body - Simplified on mobile for content focus */}
-              <div className="w-full h-full rounded-[32px] border border-white/[0.12] bg-[rgba(255,255,255,0.03)] backdrop-blur-[75px] shadow-sm relative overflow-hidden md:animate-card-glow">
+              <div className="w-full h-full rounded-[32px] border border-white/[0.12] bg-[rgba(255,255,255,0.03)] backdrop-blur-[75px] shadow-sm relative overflow-hidden md:animate-card-glow motion-reduce:animate-none"
+                style={{ contain: 'layout style' }}>
                 {/* Ethereal background gradient - Reduced on mobile */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[rgba(200,230,255,0.04)] md:from-[rgba(200,230,255,0.06)] via-[rgba(255,255,255,0.03)] md:via-[rgba(255,255,255,0.04)] to-[rgba(180,220,255,0.03)] md:to-[rgba(180,220,255,0.05)] rounded-[32px]"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[rgba(200,230,255,0.04)] md:from-[rgba(200,230,255,0.06)] via-[rgba(255,255,255,0.03)] md:via-[rgba(255,255,255,0.04)] to-[rgba(180,220,255,0.03)] md:to-[rgba(180,220,255,0.05)] rounded-[32px]" style={{ contain: 'layout style paint' }}></div>
                 {/* Additional luminous layer - Desktop only for mobile content priority */}
-                <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-[rgba(255,255,255,0.08)] via-transparent to-[rgba(200,230,255,0.04)] rounded-[32px] opacity-60"></div>
+                <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-[rgba(255,255,255,0.08)] via-transparent to-[rgba(200,230,255,0.04)] rounded-[32px] opacity-60" style={{ contain: 'layout style' }}></div>
                 {/* Shimmer effect - Desktop only to avoid mobile distraction */}
-                <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.1)] to-transparent rounded-[32px] opacity-50 transform -skew-x-12 animate-pulse"></div>
+                <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.1)] to-transparent rounded-[32px] opacity-50 transform -skew-x-12 animate-pulse motion-reduce:animate-none" style={{ contain: 'layout', willChange: 'transform' }}></div>
               </div>
               
               {/* Card Text - Enhanced mobile readability */}

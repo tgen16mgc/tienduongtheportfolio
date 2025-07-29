@@ -284,9 +284,10 @@ const FullScreenMenu = ({ isOpen, onClose }: FullScreenMenuProps) => {
                     <motion.button 
                       onClick={handleHomeClick}
                       disabled={isNavigating}
-                      className={`block text-center text-[clamp(20px,2vw,34px)] font-extrabold leading-[105%] tracking-[-0.6px] md:tracking-[-0.792px] transition-opacity ${pathname === '/' ? 'text-white' : 'text-[#666666]'} ${isNavigating ? 'pointer-events-none opacity-50' : ''} relative z-[10002]`}
+                      className={`block text-center text-[clamp(20px,2vw,34px)] font-extrabold leading-[105%] tracking-[-0.6px] md:tracking-[-0.792px] transition-opacity ${pathname === '/' ? 'text-white' : 'text-[#666666]'} ${isNavigating ? 'pointer-events-none opacity-50' : ''} relative z-[10002] min-h-[44px] flex items-center justify-center active:opacity-70`}
                       style={{ pointerEvents: 'auto' }}
                       whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
                     >
                       HOME
@@ -294,10 +295,11 @@ const FullScreenMenu = ({ isOpen, onClose }: FullScreenMenuProps) => {
                     <Link 
                       href="/about"
                       onClick={handleClick}
-                      className={`block text-center text-[clamp(20px,2vw,34px)] font-extrabold leading-[105%] tracking-[-0.6px] md:tracking-[-0.792px] transition-opacity ${pathname === '/about' ? 'text-white' : 'text-[#666666]'}`}
+                      className={`block text-center text-[clamp(20px,2vw,34px)] font-extrabold leading-[105%] tracking-[-0.6px] md:tracking-[-0.792px] transition-opacity ${pathname === '/about' ? 'text-white' : 'text-[#666666]'} min-h-[44px] flex items-center justify-center active:opacity-70`}
                     >
                       <motion.span
                         whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         className="inline-block"
                       >
@@ -307,10 +309,11 @@ const FullScreenMenu = ({ isOpen, onClose }: FullScreenMenuProps) => {
                     <Link 
                       href="/projects"
                       onClick={handleClick}
-                      className={`block text-center text-[clamp(20px,2vw,34px)] font-extrabold leading-[105%] tracking-[-0.6px] md:tracking-[-0.792px] transition-opacity ${pathname === '/projects' ? 'text-white' : 'text-[#666666]'}`}
+                      className={`block text-center text-[clamp(20px,2vw,34px)] font-extrabold leading-[105%] tracking-[-0.6px] md:tracking-[-0.792px] transition-opacity ${pathname === '/projects' ? 'text-white' : 'text-[#666666]'} min-h-[44px] flex items-center justify-center active:opacity-70`}
                     >
                       <motion.span
                         whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         className="inline-block"
                       >
@@ -370,8 +373,11 @@ const FullScreenMenu = ({ isOpen, onClose }: FullScreenMenuProps) => {
               <Link 
                 href="/contact"
                 onClick={handleClick}
-                className="relative w-[100px] h-[45px] flex justify-center items-center rounded-[31.2px] bg-gradient-to-b from-black/50 to-[#181818]/50 shadow-[0px_0px_1.956px_0.098px_rgba(255,255,255,0.50)_inset] backdrop-blur-[5.868px] group cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-[0px_0px_3.912px_0.196px_rgba(255,255,255,0.50)_inset]"
+                className="relative min-w-[100px] min-h-[44px] w-[100px] h-[45px] flex justify-center items-center rounded-[31.2px] bg-gradient-to-b from-black/50 to-[#181818]/50 shadow-[0px_0px_1.956px_0.098px_rgba(255,255,255,0.50)_inset] backdrop-blur-[5.868px] group cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-[0px_0px_3.912px_0.196px_rgba(255,255,255,0.50)_inset] active:scale-95 active:bg-black/60"
               >
+                {/* Mobile Touch Feedback */}
+                <div className="absolute inset-0 bg-white/5 opacity-0 group-active:opacity-100 transition-opacity duration-150 rounded-[31.2px] z-0"></div>
+                
                 <span className="text-white text-sm relative z-10">Contact</span>
               </Link>
             </motion.div>

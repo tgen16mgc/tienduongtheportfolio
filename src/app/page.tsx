@@ -2,41 +2,42 @@
 
 import ProfileCard from '../components/ui/ProfileCard';
 import HeroIntroduction from '../components/sections/HeroIntroduction';
+import LazySection from '../components/ui/LazySection';
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-black relative overflow-hidden">
       {/* Animated Mesh Background - Mobile-optimized for content prioritization */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 via-black/80 to-black animate-mesh">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 via-black/80 to-black animate-mesh motion-reduce:animate-none">
         {/* Essential Mesh Nodes - Reduced complexity on mobile */}
-        <div className="absolute inset-0 transform-gpu">
+        <div className="absolute inset-0 transform-gpu" style={{ contain: 'layout style paint' }}>
           {/* Primary Nodes - Always visible but mobile-optimized */}
-          <div className="absolute w-[800px] md:w-[1000px] h-[800px] md:h-[1000px] -top-1/2 -left-1/2 bg-white/2 md:bg-white/3 rounded-full blur-3xl animate-mesh-node-1 will-change-transform transform-gpu"></div>
-          <div className="absolute w-[900px] md:w-[1200px] h-[900px] md:h-[1200px] -top-1/2 -right-1/2 bg-white/2 md:bg-white/3 rounded-full blur-3xl animate-mesh-node-2 will-change-transform transform-gpu"></div>
-          <div className="absolute w-[1000px] md:w-[1500px] h-[1000px] md:h-[1500px] -bottom-1/2 -left-1/2 bg-white/2 md:bg-white/3 rounded-full blur-3xl animate-mesh-node-3 will-change-transform transform-gpu"></div>
+          <div className="absolute w-[800px] md:w-[1000px] h-[800px] md:h-[1000px] -top-1/2 -left-1/2 bg-white/2 md:bg-white/3 rounded-full blur-3xl animate-mesh-node-1 will-change-transform transform-gpu motion-reduce:animate-none" style={{ contain: 'layout' }}></div>
+          <div className="absolute w-[900px] md:w-[1200px] h-[900px] md:h-[1200px] -top-1/2 -right-1/2 bg-white/2 md:bg-white/3 rounded-full blur-3xl animate-mesh-node-2 will-change-transform transform-gpu motion-reduce:animate-none" style={{ contain: 'layout' }}></div>
+          <div className="absolute w-[1000px] md:w-[1500px] h-[1000px] md:h-[1500px] -bottom-1/2 -left-1/2 bg-white/2 md:bg-white/3 rounded-full blur-3xl animate-mesh-node-3 will-change-transform transform-gpu motion-reduce:animate-none" style={{ contain: 'layout' }}></div>
           
           {/* Secondary Nodes - Reduced on mobile for content focus */}
-          <div className="hidden sm:block absolute w-[800px] md:w-[1100px] h-[800px] md:h-[1100px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/2 md:bg-white/3 rounded-full blur-3xl animate-mesh-node-5 will-change-transform transform-gpu"></div>
-          <div className="hidden md:block absolute w-[700px] lg:w-[900px] h-[700px] lg:h-[900px] top-0 left-1/4 bg-white/2 lg:bg-white/3 rounded-full blur-3xl animate-mesh-node-6 will-change-transform transform-gpu"></div>
-          <div className="hidden md:block absolute w-[500px] lg:w-[700px] h-[500px] lg:h-[700px] bottom-0 right-1/4 bg-white/2 lg:bg-white/3 rounded-full blur-3xl animate-mesh-node-7 will-change-transform transform-gpu"></div>
+          <div className="hidden sm:block absolute w-[800px] md:w-[1100px] h-[800px] md:h-[1100px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/2 md:bg-white/3 rounded-full blur-3xl animate-mesh-node-5 will-change-transform transform-gpu motion-reduce:animate-none" style={{ contain: 'layout' }}></div>
+          <div className="hidden md:block absolute w-[700px] lg:w-[900px] h-[700px] lg:h-[900px] top-0 left-1/4 bg-white/2 lg:bg-white/3 rounded-full blur-3xl animate-mesh-node-6 will-change-transform transform-gpu motion-reduce:animate-none" style={{ contain: 'layout' }}></div>
+          <div className="hidden md:block absolute w-[500px] lg:w-[700px] h-[500px] lg:h-[700px] bottom-0 right-1/4 bg-white/2 lg:bg-white/3 rounded-full blur-3xl animate-mesh-node-7 will-change-transform transform-gpu motion-reduce:animate-none" style={{ contain: 'layout' }}></div>
           
           {/* Tertiary Nodes - Desktop only to prioritize mobile content readability */}
-          <div className="hidden lg:block absolute w-[600px] h-[600px] top-1/4 right-0 bg-white/3 rounded-full blur-3xl animate-mesh-node-8 will-change-transform transform-gpu"></div>
-          <div className="hidden lg:block absolute w-[500px] h-[500px] bottom-1/4 left-0 bg-white/3 rounded-full blur-3xl animate-mesh-node-9 will-change-transform transform-gpu"></div>
-          <div className="hidden lg:block absolute w-[400px] h-[400px] top-0 right-1/3 bg-white/3 rounded-full blur-3xl animate-mesh-node-10 will-change-transform transform-gpu"></div>
-          <div className="hidden xl:block absolute w-[450px] h-[450px] bottom-0 left-1/3 bg-white/3 rounded-full blur-3xl animate-mesh-node-11 will-change-transform transform-gpu"></div>
-          <div className="hidden xl:block absolute w-[550px] h-[550px] top-1/3 -right-1/4 bg-white/3 rounded-full blur-3xl animate-mesh-node-12 will-change-transform transform-gpu"></div>
-          <div className="hidden xl:block absolute w-[650px] h-[650px] -bottom-1/4 left-1/2 bg-white/3 rounded-full blur-3xl animate-mesh-node-13 will-change-transform transform-gpu"></div>
+          <div className="hidden lg:block absolute w-[600px] h-[600px] top-1/4 right-0 bg-white/3 rounded-full blur-3xl animate-mesh-node-8 will-change-transform transform-gpu motion-reduce:animate-none" style={{ contain: 'layout' }}></div>
+          <div className="hidden lg:block absolute w-[500px] h-[500px] bottom-1/4 left-0 bg-white/3 rounded-full blur-3xl animate-mesh-node-9 will-change-transform transform-gpu motion-reduce:animate-none" style={{ contain: 'layout' }}></div>
+          <div className="hidden lg:block absolute w-[400px] h-[400px] top-0 right-1/3 bg-white/3 rounded-full blur-3xl animate-mesh-node-10 will-change-transform transform-gpu motion-reduce:animate-none" style={{ contain: 'layout' }}></div>
+          <div className="hidden xl:block absolute w-[450px] h-[450px] bottom-0 left-1/3 bg-white/3 rounded-full blur-3xl animate-mesh-node-11 will-change-transform transform-gpu motion-reduce:animate-none" style={{ contain: 'layout' }}></div>
+          <div className="hidden xl:block absolute w-[550px] h-[550px] top-1/3 -right-1/4 bg-white/3 rounded-full blur-3xl animate-mesh-node-12 will-change-transform transform-gpu motion-reduce:animate-none" style={{ contain: 'layout' }}></div>
+          <div className="hidden xl:block absolute w-[650px] h-[650px] -bottom-1/4 left-1/2 bg-white/3 rounded-full blur-3xl animate-mesh-node-13 will-change-transform transform-gpu motion-reduce:animate-none" style={{ contain: 'layout' }}></div>
         </div>
         
         {/* Glow Effects - Reduced on mobile for content focus */}
-        <div className="hidden sm:block absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.06),transparent_70%)] md:bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.08),transparent_70%)] mix-blend-overlay transform-gpu"></div>
-        <div className="hidden md:block absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(255,255,255,0.05),transparent_70%)] mix-blend-overlay transform-gpu"></div>
+        <div className="hidden sm:block absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.06),transparent_70%)] md:bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.08),transparent_70%)] mix-blend-overlay transform-gpu motion-reduce:hidden" style={{ contain: 'layout style' }}></div>
+        <div className="hidden md:block absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(255,255,255,0.05),transparent_70%)] mix-blend-overlay transform-gpu motion-reduce:hidden" style={{ contain: 'layout style' }}></div>
         
         {/* Ambient Light Effects - Desktop only for mobile content prioritization */}
-        <div className="hidden lg:block absolute inset-0 transform-gpu">
-          <div className="absolute w-[2000px] h-[2000px] -top-1/2 -left-1/2 bg-gradient-to-br from-white/2 to-transparent rounded-full blur-[100px] animate-ambient-1 will-change-transform transform-gpu"></div>
-          <div className="absolute w-[2000px] h-[2000px] -bottom-1/2 -right-1/2 bg-gradient-to-tl from-white/2 to-transparent rounded-full blur-[100px] animate-ambient-2 will-change-transform transform-gpu"></div>
+        <div className="hidden lg:block absolute inset-0 transform-gpu motion-reduce:hidden" style={{ contain: 'layout style' }}>
+          <div className="absolute w-[2000px] h-[2000px] -top-1/2 -left-1/2 bg-gradient-to-br from-white/2 to-transparent rounded-full blur-[100px] animate-ambient-1 will-change-transform transform-gpu motion-reduce:animate-none" style={{ contain: 'layout' }}></div>
+          <div className="absolute w-[2000px] h-[2000px] -bottom-1/2 -right-1/2 bg-gradient-to-tl from-white/2 to-transparent rounded-full blur-[100px] animate-ambient-2 will-change-transform transform-gpu motion-reduce:animate-none" style={{ contain: 'layout' }}></div>
         </div>
 
         {/* Noise Texture - Reduced opacity on mobile */}
@@ -45,12 +46,12 @@ export default function Home() {
         </div>
         
         {/* Content-Prioritized Overlay Gradient - Enhanced contrast on mobile */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 md:via-black/30 to-black transform-gpu"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 md:via-black/30 to-black transform-gpu" style={{ contain: 'layout style paint' }}></div>
       </div>
 
       {/* Content Sections */}
       <div className="relative z-10">
-        <section className="min-h-screen w-full px-[3%] sm:px-[4%] md:px-[5%]" style={{ paddingTop: 'clamp(calc(5vh + 24px), calc(5vh + 32px), calc(5vh + 40px))' }}>
+        <section id="hero" className="min-h-screen w-full px-[3%] sm:px-[4%] md:px-[5%]" style={{ paddingTop: 'clamp(calc(5vh + 24px), calc(5vh + 32px), calc(5vh + 40px))' }}>
           {/* Main container - Mobile-first responsive */}
           <div className="max-w-[1440px] w-full mx-auto">
             {/* Main layout - Progressive responsive breakpoints */}
@@ -159,6 +160,84 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* About Section - Lazy loaded for mobile performance */}
+        <LazySection 
+          threshold={0.2}
+          rootMargin="100px"
+          fallback={<div className="min-h-screen w-full bg-black"></div>}
+        >
+          <section id="about" className="min-h-screen w-full px-[3%] sm:px-[4%] md:px-[5%] py-20 bg-gradient-to-b from-black via-gray-900 to-black">
+            <div className="max-w-[1440px] w-full mx-auto flex items-center justify-center">
+              <div className="text-center">
+                <h2 className="text-white text-[clamp(32px, 6vw, 64px)] font-bold mb-8">About Me</h2>
+                <p className="text-[#C5C5C5] text-[clamp(16px, 3.5vw, 20px)] max-w-2xl mx-auto">
+                  Coming soon - Learn more about my journey, experience, and passion for creating meaningful marketing campaigns.
+                </p>
+              </div>
+            </div>
+          </section>
+        </LazySection>
+
+        {/* Projects Section - Lazy loaded for mobile performance */}
+        <LazySection 
+          threshold={0.15}
+          rootMargin="80px"
+          fallback={<div className="min-h-screen w-full bg-gradient-to-b from-black via-gray-900 to-black"></div>}
+        >
+          <section id="projects" className="min-h-screen w-full px-[3%] sm:px-[4%] md:px-[5%] py-20 bg-gradient-to-b from-black via-gray-900 to-black">
+            <div className="max-w-[1440px] w-full mx-auto flex items-center justify-center">
+              <div className="text-center">
+                <h2 className="text-white text-[clamp(32px, 6vw, 64px)] font-bold mb-8">My Projects</h2>
+                <p className="text-[#C5C5C5] text-[clamp(16px, 3.5vw, 20px)] max-w-2xl mx-auto">
+                  Explore my portfolio of successful marketing campaigns, brand strategies, and creative solutions that drive real impact.
+                </p>
+              </div>
+            </div>
+          </section>
+        </LazySection>
+
+        {/* Skills Section - Lazy loaded for mobile performance */}
+        <LazySection 
+          threshold={0.15}
+          rootMargin="80px"
+          fallback={<div className="min-h-screen w-full bg-gradient-to-b from-black via-gray-900 to-black"></div>}
+        >
+          <section id="skills" className="min-h-screen w-full px-[3%] sm:px-[4%] md:px-[5%] py-20 bg-gradient-to-b from-black via-gray-900 to-black">
+            <div className="max-w-[1440px] w-full mx-auto flex items-center justify-center">
+              <div className="text-center">
+                <h2 className="text-white text-[clamp(32px, 6vw, 64px)] font-bold mb-8">Skills & Expertise</h2>
+                <p className="text-[#C5C5C5] text-[clamp(16px, 3.5vw, 20px)] max-w-2xl mx-auto">
+                  Discover my core competencies in marketing strategy, campaign planning, brand development, and data-driven decision making.
+                </p>
+              </div>
+            </div>
+          </section>
+        </LazySection>
+
+        {/* Contact Section - Lazy loaded for mobile performance */}
+        <LazySection 
+          threshold={0.15}
+          rootMargin="80px"
+          fallback={<div className="min-h-screen w-full bg-gradient-to-b from-black via-gray-900 to-black"></div>}
+        >
+          <section id="contact" className="min-h-screen w-full px-[3%] sm:px-[4%] md:px-[5%] py-20 bg-gradient-to-b from-black via-gray-900 to-black">
+            <div className="max-w-[1440px] w-full mx-auto flex items-center justify-center">
+              <div className="text-center">
+                <h2 className="text-white text-[clamp(32px, 6vw, 64px)] font-bold mb-8">Let's Connect</h2>
+                <p className="text-[#C5C5C5] text-[clamp(16px, 3.5vw, 20px)] max-w-2xl mx-auto mb-8">
+                  Ready to collaborate on your next marketing campaign? Let's discuss how we can create something impactful together.
+                </p>
+                <a 
+                  href="mailto:tiendn.fw@gmail.com" 
+                  className="inline-flex min-h-[44px] px-8 py-3 bg-white text-black rounded-full font-medium text-[clamp(16px, 3vw, 18px)] hover:bg-gray-200 transition-all duration-200 active:scale-95 active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50"
+                >
+                  Get In Touch
+                </a>
+              </div>
+            </div>
+          </section>
+        </LazySection>
       </div>
     </main>
   );
