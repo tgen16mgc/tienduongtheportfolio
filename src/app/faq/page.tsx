@@ -1,10 +1,9 @@
 'use client';
 
-import GlassmorphicContact from '../../components/ui/GlassmorphicContact';
 import FAQSection from '../../components/ui/faq-section';
 import { useParallax } from '../../hooks/useParallax';
 
-export default function ContactPage() {
+export default function FAQPage() {
   const parallaxOffset = useParallax(0.2);
 
   return (
@@ -27,13 +26,8 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/60 transform-gpu" style={{ contain: 'layout style paint' }}></div>
       </div>
 
-      {/* Contact Component */}
+      {/* FAQ Component */}
       <div className="relative z-10">
-        <GlassmorphicContact />
-      </div>
-
-      {/* FAQ Section */}
-      <div className="relative z-10 mt-16">
         <FAQSection />
       </div>
 
@@ -62,4 +56,4 @@ export default function ContactPage() {
       `}</style>
     </main>
   );
-}
+} 
