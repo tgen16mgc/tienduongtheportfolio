@@ -9,13 +9,18 @@ const ProfileCard: React.FC = () => {
   return (
     <div 
       data-layer="Frame 49" 
-      className="Frame49 relative flex justify-center items-end w-full max-w-[200px] sm:max-w-[220px] md:max-w-[200px]" 
+      className="Frame49 relative" 
       style={{ 
-        height: 'clamp(320px, 25vh, 372px)',
-        paddingBottom: 'clamp(12px, 2vh, 16px)'
+        width: 'clamp(180px, 25vw, 220px)', 
+        aspectRatio: '200/372',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+        position: 'relative',
+        paddingBottom: 'clamp(12px, 2vh, 20px)'
       }}
     >
-      <div className="absolute top-0 left-0 w-full h-full rounded-[clamp(8px, 2vw, 12px)] overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full">
         <Image 
           src="https://cdn.jsdelivr.net/gh/tgen16mgc/tienduongtheportfolio@8d9e6ae9e5c29210987af371ecccddc8322fe2f3/public/images/Card.png"
           alt="Card Background"
@@ -23,7 +28,6 @@ const ProfileCard: React.FC = () => {
           className="object-cover"
           priority
           unoptimized
-          sizes="(max-width: 768px) 200px, (max-width: 1024px) 220px, 200px"
         />
       </div>
       
@@ -96,10 +100,10 @@ const ProfileCard: React.FC = () => {
                     width: '100%',
                     textAlign: 'center',
                     color: 'white',
-                    fontSize: 'clamp(12px, 3vw, 16px)',
+                    fontSize: '14px',
                     fontFamily: 'SF Pro Text',
                     fontWeight: 600,
-                    lineHeight: 'clamp(1.2, 1.3, 1.2)',
+                    lineHeight: '14.70px',
                     whiteSpace: 'nowrap',
                     display: 'flex',
                     justifyContent: 'center'
@@ -113,11 +117,11 @@ const ProfileCard: React.FC = () => {
                   style={{
                     width: '100%',
                     textAlign: 'center',
-                    color: '#C5C5C5',
-                    fontSize: 'clamp(10px, 2.5vw, 10px)', 
+                    color: '#ACACAC',
+                    fontSize: '8.95px',
                     fontFamily: 'Rethink Sans',
                     fontWeight: 400,
-                    lineHeight: 'clamp(1.2, 1.3, 1.2)',
+                    lineHeight: '9.39px',
                     whiteSpace: 'nowrap',
                     display: 'flex',
                     justifyContent: 'center'
@@ -128,19 +132,25 @@ const ProfileCard: React.FC = () => {
               </div>
               <div 
                 data-layer="Frame 3" 
-                className="Frame3 flex justify-center items-center" 
+                className="Frame3" 
                 style={{
-                  gap: 'clamp(4px, 2vw, 7px)'
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  gap: '7px'
                 }}
               >
                 <Link 
                   href="https://www.linkedin.com/in/tienduongngoc/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer"
+                  style={{
+                    display: 'flex',
+                    cursor: 'pointer'
+                  }}
                 >
                   <div data-svg-wrapper data-layer="Social Icons" data-color="Negative" data-platform="LinkedIn" className="SocialIcons relative">
-                    <svg width="24" height="24" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_42_79)">
                     <path d="M13.6616 0.422058H1.71757C1.14542 0.422058 0.68277 0.873758 0.68277 1.43222V13.4255C0.68277 13.984 1.14542 14.4385 1.71757 14.4385H13.6616C14.2338 14.4385 14.6992 13.984 14.6992 13.4283V1.43222C14.6992 0.873758 14.2338 0.422058 13.6616 0.422058ZM4.84115 12.3661H2.76059V5.67547H4.84115V12.3661ZM3.80087 4.76385C3.1329 4.76385 2.5936 4.22455 2.5936 3.55932C2.5936 2.89409 3.1329 2.35479 3.80087 2.35479C4.4661 2.35479 5.0054 2.89409 5.0054 3.55932C5.0054 4.22181 4.4661 4.76385 3.80087 4.76385ZM12.6268 12.3661H10.549V9.11386C10.549 8.33913 10.5353 7.33991 9.46765 7.33991C8.38631 7.33991 8.22206 8.18583 8.22206 9.05911V12.3661H6.14697V5.67547H8.13993V6.58982H8.1673C8.4438 6.0642 9.12272 5.50848 10.1329 5.50848C12.2381 5.50848 12.6268 6.89369 12.6268 8.69502V12.3661Z" fill="#878787"/>
                     </g>
@@ -156,10 +166,13 @@ const ProfileCard: React.FC = () => {
                   href="mailto:tiendn.fw@gmail.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer"
+                  style={{
+                    display: 'flex',
+                    cursor: 'pointer'
+                  }}
                 >
                   <div data-svg-wrapper data-layer="Social" data-social="Gmail" data-style="Black" className="Social relative">
-                    <svg width="24" height="24" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_42_80)">
                     <path d="M3.88471 12.689H1.65483C1.12762 12.689 0.699165 12.2622 0.699165 11.7334V3.61031C0.699165 2.42847 2.04665 1.75473 2.99276 2.46351L7.70737 5.99939L12.422 2.46351C13.3665 1.75473 14.7156 2.42847 14.7156 3.61031V11.7334C14.7156 12.2606 14.2887 12.689 13.7599 12.689H11.53V7.2736L7.70737 10.1406L3.88472 7.2736L3.88471 12.689Z" fill="#878787"/>
                     </g>
@@ -175,10 +188,13 @@ const ProfileCard: React.FC = () => {
                   href="https://www.facebook.com/tienduong.0822/?locale=vi_VN" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer"
+                  style={{
+                    display: 'flex',
+                    cursor: 'pointer'
+                  }}
                 >
                   <div data-svg-wrapper data-layer="Social Icons" data-color="Negative" data-platform="Facebook" className="SocialIcons relative">
-                    <svg width="24" height="24" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_42_81)">
                     <path d="M7.72376 0.422058C3.85327 0.422058 0.715561 3.55977 0.715561 7.43025C0.715561 10.7168 2.97837 13.4747 6.03086 14.2321V9.57196H4.58577V7.43025H6.03086V6.50742C6.03086 4.12211 7.1104 3.01649 9.45226 3.01649C9.8963 3.01649 10.6624 3.10367 10.9758 3.19058V5.13185C10.8104 5.11447 10.5231 5.10578 10.1663 5.10578C9.01719 5.10578 8.57315 5.54113 8.57315 6.67281V7.43025H10.8623L10.469 9.57196H8.57315V14.3872C12.0433 13.9681 14.7322 11.0134 14.7322 7.43025C14.732 3.55977 11.5942 0.422058 7.72376 0.422058Z" fill="#878787"/>
                     </g>
@@ -224,10 +240,10 @@ const ProfileCard: React.FC = () => {
                   style={{
                     textAlign: 'center',
                     color: 'black',
-                    fontSize: 'clamp(9px, 2vw, 10px)',
+                    fontSize: '8px',
                     fontFamily: 'Rethink Sans',
                     fontWeight: 400,
-                    lineHeight: 'clamp(1.1, 1.2, 1.1)',
+                    lineHeight: '8.40px',
                     whiteSpace: 'nowrap'
                   }}
                 >
@@ -254,10 +270,10 @@ const ProfileCard: React.FC = () => {
                   style={{
                     textAlign: 'center',
                     color: 'black',
-                    fontSize: 'clamp(9px, 2vw, 10px)',
+                    fontSize: '8px',
                     fontFamily: 'Rethink Sans',
                     fontWeight: 400,
-                    lineHeight: 'clamp(1.1, 1.2, 1.1)',
+                    lineHeight: '8.40px',
                     whiteSpace: 'nowrap'
                   }}
                 >
@@ -284,10 +300,10 @@ const ProfileCard: React.FC = () => {
                   style={{
                     textAlign: 'center',
                     color: 'black',
-                    fontSize: 'clamp(9px, 2vw, 10px)',
+                    fontSize: '8px',
                     fontFamily: 'Rethink Sans',
                     fontWeight: 400,
-                    lineHeight: 'clamp(1.1, 1.2, 1.1)',
+                    lineHeight: '8.40px',
                     whiteSpace: 'nowrap'
                   }}
                 >
@@ -314,10 +330,10 @@ const ProfileCard: React.FC = () => {
                   style={{
                     textAlign: 'center',
                     color: 'black',
-                    fontSize: 'clamp(9px, 2vw, 10px)',
+                    fontSize: '8px',
                     fontFamily: 'Rethink Sans',
                     fontWeight: 400,
-                    lineHeight: 'clamp(1.1, 1.2, 1.1)',
+                    lineHeight: '8.40px',
                     whiteSpace: 'nowrap'
                   }}
                 >
@@ -362,11 +378,11 @@ const ProfileCard: React.FC = () => {
                 data-layer="Open to new opportunities" 
                 className="OpenToNewOpportunities" 
                 style={{
-                  color: '#C5C5C5',
-                  fontSize: 'clamp(10px, 2.5vw, 11px)',
+                  color: '#9F9F9F',
+                  fontSize: '10.16px',
                   fontFamily: 'Rethink Sans',
                   fontWeight: 400,
-                  lineHeight: 'clamp(1.2, 1.3, 1.2)',
+                  lineHeight: '10.66px',
                   whiteSpace: 'nowrap',
                   textAlign: 'center'
                 }}

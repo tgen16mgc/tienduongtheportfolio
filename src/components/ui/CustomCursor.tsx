@@ -4,24 +4,8 @@ import { motion } from 'framer-motion';
 const CustomCursor: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [cursorVariant, setCursorVariant] = useState('default');
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
-
-  // Detect touch device - hide cursor on touch devices
-  useEffect(() => {
-    const checkTouchDevice = () => {
-      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
-    };
-    
-    checkTouchDevice();
-    window.addEventListener('resize', checkTouchDevice);
-    
-    return () => window.removeEventListener('resize', checkTouchDevice);
-  }, []);
 
   useEffect(() => {
-    // Only add mouse listeners for non-touch devices
-    if (isTouchDevice) return;
-    
     const mouseMove = (e: MouseEvent) => {
       setMousePosition({
         x: e.clientX,
@@ -34,7 +18,7 @@ const CustomCursor: React.FC = () => {
     return () => {
       window.removeEventListener('mousemove', mouseMove);
     };
-  }, [isTouchDevice]);
+  }, []);
 
   const variants = {
     default: {
@@ -54,9 +38,6 @@ const CustomCursor: React.FC = () => {
   };
 
   useEffect(() => {
-    // Only add hover listeners for non-touch devices
-    if (isTouchDevice) return;
-    
     const textElements = document.querySelectorAll('a, button, [data-cursor="text"]');
     
     const mouseEnter = () => setCursorVariant('text');
@@ -73,10 +54,7 @@ const CustomCursor: React.FC = () => {
         element.removeEventListener('mouseleave', mouseLeave);
       });
     };
-  }, [isTouchDevice]);
-
-  // Don't render custom cursor on touch devices
-  if (isTouchDevice) return null;
+  }, []);
 
   return (
     <motion.div

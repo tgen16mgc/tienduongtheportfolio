@@ -2,13 +2,24 @@
 
 import ProfileCard from '../components/ui/ProfileCard';
 import HeroIntroduction from '../components/sections/HeroIntroduction';
-import LazySection from '../components/ui/LazySection';
+import SectionDivider from '../components/ui/SectionDivider';
+import TitleSection from '../components/ui/TitleSection';
+import Carousel from '../components/ui/Carousel';
+import { useParallax } from '../hooks/useParallax';
 
 export default function Home() {
+  const parallaxOffset = useParallax(0.3) // Slower parallax for background depth
+  const contentParallax = useParallax(0.1) // Subtle content parallax
+
   return (
     <main className="min-h-screen bg-black relative overflow-hidden">
-      {/* Animated Mesh Background - Mobile-optimized for content prioritization */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 via-black/80 to-black animate-mesh motion-reduce:animate-none">
+      {/* Animated Mesh Background with Parallax - Mobile-optimized for content prioritization */}
+      <div 
+        className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 via-black/80 to-black animate-mesh motion-reduce:animate-none parallax-element"
+        style={{
+          transform: `translateY(${parallaxOffset}px)`
+        }}
+      >
         {/* Essential Mesh Nodes - Reduced complexity on mobile */}
         <div className="absolute inset-0 transform-gpu" style={{ contain: 'layout style paint' }}>
           {/* Primary Nodes - Always visible but mobile-optimized */}
@@ -49,16 +60,22 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 md:via-black/30 to-black transform-gpu" style={{ contain: 'layout style paint' }}></div>
       </div>
 
-      {/* Content Sections */}
-      <div className="relative z-10">
-        <section id="hero" className="min-h-screen w-full px-[3%] sm:px-[4%] md:px-[5%]" style={{ paddingTop: 'clamp(calc(5vh + 24px), calc(5vh + 32px), calc(5vh + 40px))' }}>
+      {/* Content Sections with Subtle Parallax */}
+      <div 
+        className="relative z-10 parallax-element"
+        style={{
+          transform: `translateY(${contentParallax * -0.5}px)`
+        }}
+      >
+        {/* Responsive container for all sections */}
+        <div className="w-full max-w-[1600px] mx-auto px-[3%]">
+          <section id="hero" className="w-full" style={{ paddingTop: 'clamp(calc(5vh + 24px), calc(5vh + 32px), calc(5vh + 40px))', paddingBottom: 'clamp(2rem, 4vh, 3rem)' }}>
           {/* Main container - Mobile-first responsive */}
-          <div className="max-w-[1440px] w-full mx-auto">
+          <div className="w-full">
             {/* Main layout - Progressive responsive breakpoints */}
             <div 
               className="flex flex-col md:flex-row xl:flex-row w-full items-start md:items-start xl:justify-between"
               style={{
-                minHeight: 'calc(100vh - 10vh - 64px)',
                 gap: 'clamp(2rem, 6vw, 3rem)'
               }}
             >
@@ -159,85 +176,24 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
-
-        {/* About Section - Lazy loaded for mobile performance */}
-        <LazySection 
-          threshold={0.2}
-          rootMargin="100px"
-          fallback={<div className="min-h-screen w-full bg-black"></div>}
-        >
-          <section id="about" className="min-h-screen w-full px-[3%] sm:px-[4%] md:px-[5%] py-20 bg-gradient-to-b from-black via-gray-900 to-black">
-            <div className="max-w-[1440px] w-full mx-auto flex items-center justify-center">
-              <div className="text-center">
-                <h2 className="text-white text-[clamp(32px, 6vw, 64px)] font-bold mb-8">About Me</h2>
-                <p className="text-[#C5C5C5] text-[clamp(16px, 3.5vw, 20px)] max-w-2xl mx-auto">
-                  Coming soon - Learn more about my journey, experience, and passion for creating meaningful marketing campaigns.
-                </p>
-              </div>
-            </div>
           </section>
-        </LazySection>
 
-        {/* Projects Section - Lazy loaded for mobile performance */}
-        <LazySection 
-          threshold={0.15}
-          rootMargin="80px"
-          fallback={<div className="min-h-screen w-full bg-gradient-to-b from-black via-gray-900 to-black"></div>}
-        >
-          <section id="projects" className="min-h-screen w-full px-[3%] sm:px-[4%] md:px-[5%] py-20 bg-gradient-to-b from-black via-gray-900 to-black">
-            <div className="max-w-[1440px] w-full mx-auto flex items-center justify-center">
-              <div className="text-center">
-                <h2 className="text-white text-[clamp(32px, 6vw, 64px)] font-bold mb-8">My Projects</h2>
-                <p className="text-[#C5C5C5] text-[clamp(16px, 3.5vw, 20px)] max-w-2xl mx-auto">
-                  Explore my portfolio of successful marketing campaigns, brand strategies, and creative solutions that drive real impact.
-                </p>
-              </div>
-            </div>
-          </section>
-        </LazySection>
+          {/* Section Divider - Proportional spacing */}
+          <div style={{ marginTop: 'clamp(8vh, 12vh, 16vh)' }}>
+            <SectionDivider />
+          </div>
 
-        {/* Skills Section - Lazy loaded for mobile performance */}
-        <LazySection 
-          threshold={0.15}
-          rootMargin="80px"
-          fallback={<div className="min-h-screen w-full bg-gradient-to-b from-black via-gray-900 to-black"></div>}
-        >
-          <section id="skills" className="min-h-screen w-full px-[3%] sm:px-[4%] md:px-[5%] py-20 bg-gradient-to-b from-black via-gray-900 to-black">
-            <div className="max-w-[1440px] w-full mx-auto flex items-center justify-center">
-              <div className="text-center">
-                <h2 className="text-white text-[clamp(32px, 6vw, 64px)] font-bold mb-8">Skills & Expertise</h2>
-                <p className="text-[#C5C5C5] text-[clamp(16px, 3.5vw, 20px)] max-w-2xl mx-auto">
-                  Discover my core competencies in marketing strategy, campaign planning, brand development, and data-driven decision making.
-                </p>
-              </div>
-            </div>
-          </section>
-        </LazySection>
+          {/* Interactive Title Section - Proportional spacing */}
+          <div style={{ marginTop: 'clamp(6vh, 8vh, 10vh)' }}>
+            <TitleSection title="Featured Projects" />
+          </div>
 
-        {/* Contact Section - Lazy loaded for mobile performance */}
-        <LazySection 
-          threshold={0.15}
-          rootMargin="80px"
-          fallback={<div className="min-h-screen w-full bg-gradient-to-b from-black via-gray-900 to-black"></div>}
-        >
-          <section id="contact" className="min-h-screen w-full px-[3%] sm:px-[4%] md:px-[5%] py-20 bg-gradient-to-b from-black via-gray-900 to-black">
-            <div className="max-w-[1440px] w-full mx-auto flex items-center justify-center">
-              <div className="text-center">
-                <h2 className="text-white text-[clamp(32px, 6vw, 64px)] font-bold mb-8">Let's Connect</h2>
-                <p className="text-[#C5C5C5] text-[clamp(16px, 3.5vw, 20px)] max-w-2xl mx-auto mb-8">
-                  Ready to collaborate on your next marketing campaign? Let's discuss how we can create something impactful together.
-                </p>
-                <a 
-                  href="mailto:tiendn.fw@gmail.com" 
-                  className="inline-flex min-h-[44px] px-8 py-3 bg-white text-black rounded-full font-medium text-[clamp(16px, 3vw, 18px)] hover:bg-gray-200 transition-all duration-200 active:scale-95 active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50"
-                >
-                  Get In Touch
-                </a>
-              </div>
-            </div>
+          {/* Projects Carousel - Proportional spacing */}
+          <section className="w-full" style={{ marginTop: 'clamp(4vh, 6vh, 8vh)' }}>
+            <Carousel />
           </section>
-        </LazySection>
+
+        </div>
       </div>
     </main>
   );

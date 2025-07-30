@@ -119,40 +119,31 @@ const Navigation = () => {
     }
   };
 
-  // Touch device detection for better interaction handling
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
-  
-  useEffect(() => {
-    const checkTouchDevice = () => {
-      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
-    };
-    
-    checkTouchDevice();
-    window.addEventListener('resize', checkTouchDevice);
-    
-    return () => window.removeEventListener('resize', checkTouchDevice);
-  }, []);
-
   return (
     <>
-    <nav className="fixed top-0 left-0 right-0 w-full h-[5vh] min-h-[60px] max-h-[100px] px-[3%] py-[1vh] pt-[1.5vh] bg-transparent backdrop-blur-sm flex flex-col items-start z-50">
-      <div className="max-w-[1440px] w-full mx-auto flex justify-between items-center">
+    <nav className="fixed top-0 left-0 right-0 w-full h-[4vh] min-h-[48px] max-h-[80px] px-[3%] py-[0.8vh] pt-[1.5vh] bg-transparent backdrop-blur-sm flex justify-between items-center z-50">
         {/* Logo */}
-        <Link href="/" className="text-[#FFF] text-[clamp(16px,1.5vw,26px)] font-semibold leading-[105%] tracking-[-0.5px] md:tracking-[-0.706px] whitespace-nowrap">
+        <Link href="/" className="text-[#FFF] font-semibold leading-[105%] whitespace-nowrap font-['Rethink_Sans']" style={{ fontSize: 'clamp(14px, 2vw, 26px)', letterSpacing: 'clamp(-0.4px, -0.02em, -0.8px)' }}>
           Tien Duong Ngoc
         </Link>
 
         {/* Right Frame */}
-        <div className="flex items-center gap-[clamp(8px,2vw,60px)]">
-          {/* Contact Button - Touch-optimized */}
+        <div className="flex items-center" style={{ gap: 'clamp(0.4rem, 2.4vw, 1.6rem)' }}>
+          {/* Glass Box with Dynamic Glow */}
           <Link 
             href="/contact"
             ref={contactButtonRef}
-            className="relative min-w-[80px] w-[clamp(80px,8vw,140px)] min-h-[44px] h-[clamp(44px,4vh,58px)] px-[clamp(12px,1.5vw,32px)] py-[clamp(8px,1vh,18px)] flex justify-center items-center rounded-[31.2px] bg-gradient-to-b from-black/50 to-[#181818]/50 shadow-[0px_0px_1.956px_0.098px_rgba(255,255,255,0.50)_inset] backdrop-blur-[5.868px] group cursor-pointer overflow-hidden transition-all duration-300 active:scale-95 md:active:scale-100"
+            className="relative flex justify-center items-center bg-gradient-to-b from-black/50 to-[#181818]/50 shadow-[0px_0px_1.956px_0.098px_rgba(255,255,255,0.50)_inset] backdrop-blur-[5.868px] group cursor-pointer overflow-hidden transition-all duration-300"
+            style={{ 
+              minWidth: 'clamp(64px, 10vw, 128px)',
+              height: 'clamp(32px, 4.8vh, 52px)',
+              padding: 'clamp(6px, 1.2vh, 14px) clamp(10px, 1.6vw, 26px)',
+              borderRadius: 'clamp(16px, 3.2vw, 26px)'
+            }}
           >
-            {/* Desktop Dynamic Glow Effect */}
+            {/* Dynamic Glow Effect */}
             <div 
-              className="hidden md:block absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none will-change-transform z-0"
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none will-change-transform z-0"
               style={{
                 background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.25) 0%, transparent 80%)`,
                 transform: 'translate(-50%, -50%)',
@@ -163,27 +154,27 @@ const Navigation = () => {
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
               }}
             />
-            
-            {/* Mobile Touch Feedback */}
-            <div className="md:hidden absolute inset-0 bg-white/10 opacity-0 group-active:opacity-100 transition-opacity duration-150 rounded-[31.2px] z-0"></div>
-            
-            <span className="text-white text-[clamp(12px,0.9vw,18px)] relative z-10">Contact</span>
+            <span className="text-white relative z-10 font-['Rethink_Sans']" style={{ fontSize: 'clamp(10px, 1.4vw, 16px)' }}>Contact</span>
           </Link>
 
-          {/* Hamburger Icon - Touch-optimized */}
+          {/* Hamburger Icon */}
           <motion.button
             onClick={() => setIsMenuOpen(true)}
-            className="min-w-[44px] min-h-[44px] w-[clamp(44px,3vw,48px)] h-[clamp(44px,3vw,48px)] flex items-center justify-center hover:opacity-80 active:opacity-60 transition-opacity duration-200 rounded-lg active:bg-white/5"
+            className="flex items-center justify-center hover:opacity-80 transition-opacity"
+            style={{ 
+              width: 'clamp(14px, 1.6vw, 22px)', 
+              height: 'clamp(14px, 1.6vw, 22px)' 
+            }}
             aria-label="Toggle menu"
             variants={buttonVariants}
             initial="initial"
-            whileHover={isTouchDevice ? {} : "hover"}
+            whileHover="hover"
             whileTap="tap"
           >
-            <svg width="24" height="24" viewBox="0 0 20 20" fill="none" className="flex-shrink-0">
+            <svg width="100%" height="100%" viewBox="0 0 20 20" fill="none">
               <motion.path
                 stroke="white"
-                strokeWidth="2"
+                strokeWidth="1.6"
                 strokeLinecap="round"
                 variants={iconVariants}
                 initial="closed"
@@ -192,7 +183,6 @@ const Navigation = () => {
             </svg>
           </motion.button>
         </div>
-      </div>
     </nav>
 
     <FullScreenMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />

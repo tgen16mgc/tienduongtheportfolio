@@ -73,135 +73,127 @@ const HeroIntroduction: React.FC = () => {
   }, [isHovering]);
 
   return (
-    <div className="flex w-full flex-col items-center shrink-0 relative px-4 lg:px-0" style={{ gap: 'clamp(1.5rem, 4vw, 2.5rem)' }}>
-      {/* Mobile-specific landscape detection and adjustments */}
-      <style jsx>{`
-        @media (max-height: 500px) and (orientation: landscape) {
-          .hero-container { gap: clamp(1rem, 3vw, 1.5rem); }
-          .hero-text { font-size: clamp(18px, 6vw, 48px); }
-        }
-      `}</style>
-      {/* Main Introduction Section - Mobile-first hierarchy */}
-      <div className="flex flex-col items-start self-stretch relative" style={{ gap: 'clamp(1rem, 3vw, 1.75rem)' }}>
-        {/* Title and Cards Section - Mobile-optimized spacing */}
-        <div className="flex w-full flex-col items-start relative" style={{ gap: 'clamp(1rem, 3vw, 1.125rem)' }}>
-          {/* First Line: "Hi there! I am" + Name Card - Mobile-first layout */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center relative" style={{ gap: 'clamp(1rem, 3vw, 1.125rem)' }}>
-            {/* "Hi there! I am" text - Enhanced mobile readability */}
-            <div className="text-white font-['Rethink_Sans'] font-bold relative" style={{ fontSize: 'clamp(24px, 8vw, 64px)', lineHeight: 'clamp(1.1, 1.15, 1.05)', letterSpacing: 'clamp(-1px, -0.03em, -1.92px)' }}>
-              <span className="font-sans font-bold text-white">Hi there! I am</span>
+    <div className="flex w-full flex-col items-center gap-6 lg:gap-10 shrink-0 relative px-4 lg:px-0">
+      {/* Main Introduction Section */}
+      <div className="flex flex-col items-start gap-4 lg:gap-7 self-stretch relative">
+        {/* Title and Cards Section */}
+        <div className="flex w-full flex-col items-start gap-4 lg:gap-[18px] relative">
+          {/* First Line: "Hi there! I am" + Name Card */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-[18px] relative">
+            {/* "Hi there! I am" text */}
+            <div className="text-white font-['Rethink_Sans'] text-[32px] sm:text-[48px] lg:text-[64px] font-bold leading-[105%] tracking-[-1.92px] relative">
+              <span className="font-sans font-bold text-[32px] sm:text-[48px] lg:text-[64px] text-white">Hi there! I am</span>
             </div>
             
-            {/* Tien Duong Card - Responsive with mobile-first approach */}
-            <div className="w-full max-w-[180px] sm:max-w-[200px] lg:max-w-[241px] h-[44px] sm:h-[50px] lg:h-[59px] relative min-w-0">
+            {/* Tien Duong Card - Clean version */}
+            <div className="w-[180px] sm:w-[200px] lg:w-[241px] h-[44px] sm:h-[50px] lg:h-[59px] relative">
               {/* Clean Card Body with Glassmorphism */}
               <div className="w-full h-full rounded-[30px] border border-white/[0.09] bg-[rgba(137,137,137,0.05)] backdrop-blur-[75px] shadow-sm relative overflow-hidden">
                 {/* Subtle background gradient */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[rgba(114,114,114,0.08)] via-transparent to-[rgba(114,114,114,0.05)] rounded-[30px]"></div>
               </div>
               
-              {/* Card Text - Enhanced mobile readability */}
-              <div className="absolute inset-0 flex items-center justify-center px-2">
-                <span className="text-white font-['Rethink_Sans'] font-normal text-center" style={{ fontSize: 'clamp(16px, 5vw, 31px)', lineHeight: 'clamp(1.1, 1.15, 1.05)', letterSpacing: 'clamp(-0.5px, -0.02em, -0.933px)' }}>Tien Duong</span>
+              {/* Card Text */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-white font-['Rethink_Sans'] text-[20px] sm:text-[26px] lg:text-[31px] font-normal leading-[105%] tracking-[-0.933px]">Tien Duong</span>
               </div>
             </div>
           </div>
           
-          {/* Second Line: "a Marketer (& Planner) intern." - Mobile-responsive wrapping */}
-          <div className="flex flex-wrap items-center relative" style={{ gap: 'clamp(0.75rem, 3vw, 1.25rem)' }}>
-            {/* "a" text - Enhanced mobile readability */}
-            <div className="text-white font-['Rethink_Sans'] font-bold relative flex-shrink-0" style={{ fontSize: 'clamp(24px, 8vw, 64px)', lineHeight: 'clamp(1.1, 1.15, 1.05)', letterSpacing: 'clamp(-1px, -0.03em, -1.92px)' }}>
-              <span className="font-sans font-bold text-white">a</span>
+          {/* Second Line: "a Marketer (& Planner) intern." - All on one line */}
+          <div className="flex flex-wrap items-center gap-3 sm:gap-5 relative" style={{ whiteSpace: 'nowrap' }}>
+            {/* "a" text */}
+            <div className="text-white font-['Rethink_Sans'] text-[32px] sm:text-[48px] lg:text-[64px] font-bold leading-[105%] tracking-[-1.92px] relative flex-shrink-0">
+              <span className="font-sans font-bold text-[32px] sm:text-[48px] lg:text-[64px] text-white">a</span>
             </div>
             
-            {/* Marketer Card - Mobile content-focused design */}
-            <div className="w-full max-w-[280px] sm:max-w-[380px] lg:max-w-[438px] h-[50px] sm:h-[58px] lg:h-[67px] relative min-w-0">
-              {/* Clean Card Body - Simplified on mobile for content focus */}
-              <div className="w-full h-full rounded-[32px] border border-white/[0.12] bg-[rgba(255,255,255,0.03)] backdrop-blur-[75px] shadow-sm relative overflow-hidden md:animate-card-glow motion-reduce:animate-none"
-                style={{ contain: 'layout style' }}>
-                {/* Ethereal background gradient - Reduced on mobile */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[rgba(200,230,255,0.04)] md:from-[rgba(200,230,255,0.06)] via-[rgba(255,255,255,0.03)] md:via-[rgba(255,255,255,0.04)] to-[rgba(180,220,255,0.03)] md:to-[rgba(180,220,255,0.05)] rounded-[32px]" style={{ contain: 'layout style paint' }}></div>
-                {/* Additional luminous layer - Desktop only for mobile content priority */}
-                <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-[rgba(255,255,255,0.08)] via-transparent to-[rgba(200,230,255,0.04)] rounded-[32px] opacity-60" style={{ contain: 'layout style' }}></div>
-                {/* Shimmer effect - Desktop only to avoid mobile distraction */}
-                <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.1)] to-transparent rounded-[32px] opacity-50 transform -skew-x-12 animate-pulse motion-reduce:animate-none" style={{ contain: 'layout', willChange: 'transform' }}></div>
+            {/* Marketer Card - Clean version with glow animation */}
+            <div className="w-auto min-w-[320px] sm:min-w-[380px] lg:w-[438px] h-[50px] sm:h-[58px] lg:h-[67px] relative flex-shrink-0">
+              {/* Clean Card Body with Glassmorphism and Ethereal Glow Animation */}
+              <div className="w-full h-full rounded-[32px] border border-white/[0.12] bg-[rgba(255,255,255,0.03)] backdrop-blur-[75px] shadow-sm relative overflow-hidden animate-card-glow">
+                {/* Ethereal background gradient */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[rgba(200,230,255,0.06)] via-[rgba(255,255,255,0.04)] to-[rgba(180,220,255,0.05)] rounded-[32px]"></div>
+                {/* Additional luminous layer */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[rgba(255,255,255,0.08)] via-transparent to-[rgba(200,230,255,0.04)] rounded-[32px] opacity-60"></div>
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.1)] to-transparent rounded-[32px] opacity-50 transform -skew-x-12 animate-pulse"></div>
               </div>
               
-              {/* Card Text - Enhanced mobile readability */}
-              <div className="absolute inset-0 flex items-center justify-center px-3">
-                <span className="text-white font-['Rethink_Sans'] font-normal text-center" style={{ fontSize: 'clamp(18px, 6vw, 42px)', lineHeight: 'clamp(1.1, 1.15, 1.05)', letterSpacing: 'clamp(-0.7px, -0.02em, -1.268px)' }}>Marketer (& Planner)</span>
+              {/* Card Text */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-white font-['Rethink_Sans'] text-[24px] sm:text-[32px] lg:text-[42px] font-normal leading-[105%] tracking-[-1.268px]">Marketer (& Planner)</span>
               </div>
             </div>
             
-            {/* "intern." text - Enhanced mobile readability */}
-            <div className="text-white font-['Rethink_Sans'] font-bold relative flex-shrink-0" style={{ fontSize: 'clamp(24px, 8vw, 64px)', lineHeight: 'clamp(1.1, 1.15, 1.05)', letterSpacing: 'clamp(-1px, -0.03em, -1.92px)' }}>
-              <span className="font-sans font-bold text-white">intern.</span>
+            {/* "intern." text */}
+            <div className="text-white font-['Rethink_Sans'] text-[32px] sm:text-[48px] lg:text-[64px] font-bold leading-[105%] tracking-[-1.92px] relative flex-shrink-0">
+              <span className="font-sans font-bold text-[32px] sm:text-[48px] lg:text-[64px] text-white">intern.</span>
           </div>
           </div>
         </div>
       </div>
       
-      {/* Mission Statement Section - Mobile-optimized hierarchy */}
-      <div className="flex flex-col items-start self-stretch relative" style={{ gap: 'clamp(0.5rem, 2vw, 1rem)' }}>
-        {/* Main statement line - Mobile-responsive with better spacing */}
-        <div className="flex items-center self-stretch relative" style={{ paddingTop: 'clamp(0.5rem, 2vw, 0.625rem)', paddingBottom: 'clamp(0.5rem, 2vw, 0.625rem)' }}>
-          <div className="text-white font-['Rethink_Sans'] font-bold w-full" style={{ fontSize: 'clamp(24px, 7vw, 63px)', lineHeight: 'clamp(1.1, 1.15, 1.05)', letterSpacing: 'clamp(-1px, -0.03em, -1.89px)' }}>
-            <span className="font-sans font-bold text-white">driven by desire to brilliantly make  </span>
+      {/* Mission Statement Section */}
+      <div className="flex flex-col items-start gap-[1px] self-stretch relative">
+        {/* Main statement line */}
+        <div className="flex py-[10px] px-0 items-center self-stretch relative">
+          <div className="text-white font-['Rethink_Sans'] text-[28px] sm:text-[42px] lg:text-[63px] font-bold leading-[105%] tracking-[-1.89px] w-full" style={{ whiteSpace: 'nowrap' }}>
+            <span className="font-sans font-bold text-[28px] sm:text-[42px] lg:text-[63px] text-white">driven by desire to brilliantly make  </span>
           </div>
         </div>
         
-        {/* Quality Cards and Impact - Mobile-first spacing */}
-        <div className="flex flex-wrap items-center relative" style={{ gap: 'clamp(0.75rem, 3vw, 1.125rem)' }}>
-          {/* Real Card - Mobile-responsive */}
-          <div className="w-auto max-w-[80px] lg:max-w-[105px] h-[40px] lg:h-[52px] relative min-w-0">
+        {/* Quality Cards and Impact */}
+        <div className="flex flex-wrap items-center gap-3 lg:gap-[18px] relative">
+          {/* Real Card - Clean version */}
+          <div className="w-[80px] lg:w-[105px] h-[40px] lg:h-[52px] relative">
             {/* Clean Card Body */}
             <div className="w-full h-full rounded-[26px] border border-white/[0.09] bg-[rgba(137,137,137,0.05)] backdrop-blur-[65px] shadow-sm"></div>
             
-            {/* Card Text - Enhanced mobile readability */}
-            <div className="absolute inset-0 flex items-center justify-center px-2">
-              <span className="text-white font-['Rethink_Sans'] font-normal text-center" style={{ fontSize: 'clamp(16px, 4vw, 27px)', lineHeight: 'clamp(1.1, 1.2, 1.1)', letterSpacing: 'clamp(-0.4px, -0.02em, -0.819px)' }}>Real</span>
+            {/* Card Text */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-white font-['Rethink_Sans'] text-[18px] lg:text-[27px] font-normal leading-[105%] tracking-[-0.819px]">Real</span>
             </div>
           </div>
           
-          {/* Meaningful Card - Mobile-responsive */}
-          <div className="w-auto max-w-[140px] lg:max-w-[196px] h-[40px] lg:h-[52px] relative min-w-0">
+          {/* Meaningful Card - Clean version */}
+          <div className="w-[140px] lg:w-[196px] h-[40px] lg:h-[52px] relative">
             {/* Clean Card Body */}
             <div className="w-full h-full rounded-[26px] border border-white/[0.09] bg-[rgba(137,137,137,0.05)] backdrop-blur-[65px] shadow-sm"></div>
             
-            {/* Card Text - Enhanced mobile readability */}
-            <div className="absolute inset-0 flex items-center justify-center px-2">
-              <span className="text-white font-['Rethink_Sans'] font-normal text-center" style={{ fontSize: 'clamp(16px, 4vw, 27px)', lineHeight: 'clamp(1.1, 1.2, 1.1)', letterSpacing: 'clamp(-0.4px, -0.02em, -0.819px)' }}>Meaningful</span>
+            {/* Card Text */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-white font-['Rethink_Sans'] text-[18px] lg:text-[27px] font-normal leading-[105%] tracking-[-0.819px]">Meaningful</span>
             </div>
           </div>
           
-          {/* Powerful Card - Mobile-responsive */}
-          <div className="w-auto max-w-[120px] lg:max-w-[160px] h-[40px] lg:h-[52px] relative min-w-0">
+          {/* Powerful Card - Clean version */}
+          <div className="w-[120px] lg:w-[160px] h-[40px] lg:h-[52px] relative">
             {/* Clean Card Body */}
             <div className="w-full h-full rounded-[26px] border border-white/[0.09] bg-[rgba(137,137,137,0.05)] backdrop-blur-[65px] shadow-sm"></div>
             
-            {/* Card Text - Enhanced mobile readability */}
-            <div className="absolute inset-0 flex items-center justify-center px-2">
-              <span className="text-white font-['Rethink_Sans'] font-normal text-center" style={{ fontSize: 'clamp(16px, 4vw, 27px)', lineHeight: 'clamp(1.1, 1.2, 1.1)', letterSpacing: 'clamp(-0.4px, -0.02em, -0.819px)' }}>Powerful</span>
+            {/* Card Text */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-white font-['Rethink_Sans'] text-[18px] lg:text-[27px] font-normal leading-[105%] tracking-[-0.819px]">Powerful</span>
             </div>
           </div>
           
-          {/* "impact." with gradient - Enhanced mobile readability */}
-          <div className="font-['Rethink_Sans'] font-bold bg-gradient-to-r from-white to-[#838383] bg-clip-text text-transparent relative" style={{ fontSize: 'clamp(24px, 8vw, 64px)', lineHeight: 'clamp(1.1, 1.15, 1.05)', letterSpacing: 'clamp(-1px, -0.03em, -1.92px)' }}>
-            <span className="font-sans font-bold">impact.</span>
+          {/* "impact." with gradient */}
+          <div className="font-['Rethink_Sans'] text-[32px] sm:text-[48px] lg:text-[64px] font-bold leading-[105%] tracking-[-1.92px] bg-gradient-to-r from-white to-[#838383] bg-clip-text text-transparent relative">
+            <span className="font-sans font-bold text-[32px] sm:text-[48px] lg:text-[64px]">impact.</span>
           </div>
         </div>
       </div>
       
-      {/* Description and CTA Section - Mobile-optimized hierarchy */}
-      <div className="flex w-full flex-col items-start relative" style={{ gap: 'clamp(1.5rem, 4vw, 2.25rem)' }}>
-        {/* Description with Arrow - Mobile-optimized decorative element */}
-        <div className="flex items-start self-stretch relative" style={{ gap: 'clamp(0.75rem, 2.5vw, 0.75rem)' }}>
-          {/* Line with circle and arrow - Mobile-responsive sizing */}
-          <div className="flex flex-col items-center flex-shrink-0" style={{ marginTop: 'clamp(0.25rem, 1vw, 0.5rem)' }}>
-            {/* Circle at top - Mobile-responsive glass effect */}
-            <div className="rounded-full bg-white/20 backdrop-blur-sm border border-white/10 shadow-sm" style={{ width: 'clamp(4px, 1.5vw, 6px)', height: 'clamp(4px, 1.5vw, 6px)' }}></div>
-            {/* Vertical line - Mobile-responsive height */}
-            <div className="w-0.5 bg-gradient-to-b from-white/30 via-white/20 to-white/30 backdrop-blur-sm shadow-sm" style={{ height: 'clamp(3rem, 8vw, 4rem)' }}></div>
+      {/* Description and CTA Section */}
+      <div className="flex w-full flex-col items-start gap-6 lg:gap-9 relative">
+        {/* Description with Arrow - Circle at top, arrow at bottom */}
+        <div className="flex items-start gap-3 self-stretch relative">
+          {/* Line with circle and arrow - Glass effect - Aligned with text */}
+          <div className="flex flex-col items-center flex-shrink-0 mt-2">
+            {/* Circle at top - Glass effect */}
+            <div className="w-[6px] h-[6px] rounded-full bg-white/20 backdrop-blur-sm border border-white/10 shadow-sm"></div>
+            {/* Vertical line - Glass effect */}
+            <div className="w-0.5 h-16 bg-gradient-to-b from-white/30 via-white/20 to-white/30 backdrop-blur-sm shadow-sm"></div>
             {/* Arrow at bottom - Glass effect */}
             <div className="relative">
               <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-0 drop-shadow-sm">
@@ -216,25 +208,25 @@ const HeroIntroduction: React.FC = () => {
         </svg>
             </div>
           </div>
-          <div className="flex flex-col flex-1" style={{ gap: 'clamp(1rem, 3vw, 1rem)' }}>
-            <div className="text-[#C5C5C5] font-['Rethink_Sans'] tracking-[-0.02em]" style={{ fontSize: 'clamp(16px, 3.5vw, 20px)', lineHeight: 'clamp(1.4, 1.6, 1.5)' }}>
+          <div className="flex flex-col gap-4 flex-1">
+            <div className="text-[#9F9F9F] font-['Rethink_Sans'] text-[14px] sm:text-[16px] lg:text-[20px] leading-[140%] tracking-[-0.03em]">
               I stand ready to turn your next campaign into a memorable, positivity-driven impact that doesn't just check boxes but sparks genuine connection.
             </div>
-            <div className="text-[#C5C5C5] font-['Rethink_Sans'] tracking-[-0.02em]" style={{ fontSize: 'clamp(16px, 3.5vw, 20px)', lineHeight: 'clamp(1.4, 1.6, 1.5)' }}>
+            <div className="text-[#9F9F9F] font-['Rethink_Sans'] text-[14px] sm:text-[16px] lg:text-[20px] leading-[140%] tracking-[-0.03em]">
               Interested? Scroll down, or...
             </div>
           </div>
         </div>
             
-        {/* CTA Button - Mobile-optimized for content priority */}
+        {/* CTA Button with Dynamic Glow */}
         <Link 
-          href="#projects"
+          href="/projects"
           ref={buttonRef}
-          className="relative w-full max-w-[180px] lg:w-[221px] min-h-[44px] h-auto lg:h-[48px] px-4 py-3 flex justify-center items-center rounded-[31.2px] bg-gradient-to-b from-black/50 to-[#181818]/50 shadow-[0px_0px_1.956px_0.098px_rgba(255,255,255,0.50)_inset] backdrop-blur-[48px] group cursor-pointer overflow-hidden transition-all duration-300 border border-white/[0.09] active:scale-95 md:active:scale-100"
+          className="relative w-full max-w-[180px] lg:w-[221px] h-[35px] lg:h-[41px] px-4 py-2 flex justify-center items-center rounded-[31.2px] bg-gradient-to-b from-black/50 to-[#181818]/50 shadow-[0px_0px_1.956px_0.098px_rgba(255,255,255,0.50)_inset] backdrop-blur-[48px] group cursor-pointer overflow-hidden transition-all duration-300 border border-white/[0.09]"
         >
-          {/* Dynamic Glow Effect - Desktop only for mobile content focus */}
+          {/* Dynamic Glow Effect */}
           <div 
-            className="hidden md:block absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none will-change-transform z-0"
+            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none will-change-transform z-0"
             style={{
               background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.25) 0%, transparent 80%)`,
               transform: 'translate(-50%, -50%)',
@@ -246,11 +238,8 @@ const HeroIntroduction: React.FC = () => {
             }}
           />
           
-          {/* Mobile Touch Feedback - Simple and focused */}
-          <div className="md:hidden absolute inset-0 bg-white/5 opacity-0 group-active:opacity-100 transition-opacity duration-150 rounded-[31.2px] z-0"></div>
-          
-          {/* Button Text - Enhanced mobile readability */}
-          <span className="text-white font-['Rethink_Sans'] font-normal relative z-10" style={{ fontSize: 'clamp(16px, 3.5vw, 20px)', lineHeight: 'clamp(1.2, 1.3, 1.1)', letterSpacing: 'clamp(-0.3px, -0.02em, -0.6px)' }}>
+          {/* Button Text */}
+          <span className="text-white font-['Rethink_Sans'] text-[16px] lg:text-[20px] font-normal leading-[105%] tracking-[-0.6px] relative z-10">
             See what I do
           </span>
           </Link>
