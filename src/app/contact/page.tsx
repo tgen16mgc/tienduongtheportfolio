@@ -33,7 +33,7 @@ export default function ContactPage() {
       </div>
 
       {/* FAQ Section */}
-      <div className="relative z-10 mt-16">
+      <div className="relative z-10 mt-8">
         <FAQSection />
       </div>
 

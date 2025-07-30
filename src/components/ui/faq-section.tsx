@@ -49,7 +49,7 @@ const faqData: FAQItem[] = [
   {
     question: "How can you contact me?",
     answer:
-      "Feel free to reach out via email at tiendn.fw@gmail.com or connect on my LinkedIn. Also, feel free to leave a message above!",
+      "Feel free to reach out via email at tiendn.fw@gmail.com or connect on my LinkedIn at linkedin.com/in/tienduongngoc/. Also, feel free to leave a message above!",
   },
 ]
 
@@ -198,7 +198,7 @@ export default function Component() {
               tiendn.fw@gmail.com
             </a>{" "}
             or connect on{" "}
-            <a href="#" className="text-white hover:underline transition-all duration-200">
+            <a href="https://linkedin.com/in/tienduongngoc/" target="_blank" rel="noopener noreferrer" className="text-white hover:underline transition-all duration-200">
               LinkedIn
             </a>
           </p>
