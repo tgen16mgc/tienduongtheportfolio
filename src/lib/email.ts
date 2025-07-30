@@ -7,7 +7,13 @@ function getResendClient(): Resend {
   if (!resend) {
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
-      throw new Error('RESEND_API_KEY environment variable is not configured');
+      // Return a mock client for development/production without API key
+      console.warn('RESEND_API_KEY not configured - using mock email service');
+      return {
+        emails: {
+          send: async () => ({ error: null })
+        }
+      } as any;
     }
     resend = new Resend(apiKey);
   }
@@ -37,6 +43,24 @@ export async function sendContactEmail(formData: ContactFormData): Promise<Email
 
     // Create email content
     const emailContent = createEmailContent(formData);
+
+    // Check if we're using mock client (no API key)
+    const isMockClient = !process.env.RESEND_API_KEY;
+    
+    if (isMockClient) {
+      // Log the email content for development/debugging
+      console.log('Mock email service - would send:', {
+        from: 'Portfolio Contact <onboarding@resend.dev>',
+        to: ['tiendn.fw@gmail.com'],
+        subject: `New Contact Form Submission from ${formData.fullName}`,
+        content: emailContent.text
+      });
+      
+      return {
+        success: true,
+        message: 'Message received (mock mode - no email sent)'
+      };
+    }
 
     // Send email
     const result = await resendClient.emails.send({
