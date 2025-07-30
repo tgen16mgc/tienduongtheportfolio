@@ -177,12 +177,15 @@ export default function Home() {
             </div>
           </div>
           </section>
+        </div>
 
-          {/* Section Divider - Full width */}
-          <div style={{ marginTop: 'clamp(8vh, 12vh, 16vh)' }} className="w-full -mx-[3%]">
-            <SectionDivider />
-          </div>
+        {/* Section Divider - Full width outside container */}
+        <div style={{ marginTop: 'clamp(8vh, 12vh, 16vh)' }} className="w-full">
+          <SectionDivider />
+        </div>
 
+        {/* Responsive container for remaining sections */}
+        <div className="w-full max-w-[1600px] mx-auto px-[3%]">
           {/* Interactive Title Section - Proportional spacing */}
           <div style={{ marginTop: 'clamp(6vh, 8vh, 10vh)' }}>
             <TitleSection title="Featured Projects" />
@@ -192,7 +195,6 @@ export default function Home() {
           <section className="w-full" style={{ marginTop: 'clamp(4vh, 6vh, 8vh)' }}>
             <Carousel />
           </section>
-
         </div>
       </div>
     </main>
