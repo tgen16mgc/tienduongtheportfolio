@@ -1,7 +1,18 @@
 import { Resend } from 'resend';
 
-// Initialize Resend with API key
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend with API key (only when needed)
+let resend: Resend | null = null;
+
+function getResendClient(): Resend {
+  if (!resend) {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      throw new Error('RESEND_API_KEY environment variable is not configured');
+    }
+    resend = new Resend(apiKey);
+  }
+  return resend;
+}
 
 export interface ContactFormData {
   fullName: string;
@@ -21,16 +32,14 @@ export interface EmailResponse {
  */
 export async function sendContactEmail(formData: ContactFormData): Promise<EmailResponse> {
   try {
-    // Validate required environment variable
-    if (!process.env.RESEND_API_KEY) {
-      throw new Error('RESEND_API_KEY environment variable is not configured');
-    }
+    // Get Resend client
+    const resendClient = getResendClient();
 
     // Create email content
     const emailContent = createEmailContent(formData);
 
     // Send email
-    const result = await resend.emails.send({
+    const result = await resendClient.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: ['tiendn.fw@gmail.com'],
       subject: `New Contact Form Submission from ${formData.fullName}`,
