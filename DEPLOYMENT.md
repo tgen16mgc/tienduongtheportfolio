@@ -2,9 +2,11 @@
 
 ## Environment Variables Setup
 
-Your portfolio uses Resend for email functionality. You need to configure the `RESEND_API_KEY` environment variable in your hosting platform.
+Your portfolio uses Resend for email functionality. You **MUST** configure the `RESEND_API_KEY` environment variable in your hosting platform for the contact form to work.
 
-### Option 1: Configure Environment Variables (Recommended)
+### API Key Configuration
+
+**Your Resend API Key:** `re_htmH5ZqP_7GBi2dvqyXmKQqQC6iuVK6T1`
 
 #### For Vercel:
 1. Go to your project dashboard on Vercel
@@ -18,28 +20,24 @@ Your portfolio uses Resend for email functionality. You need to configure the `R
 3. Add: `RESEND_API_KEY` = `re_htmH5ZqP_7GBi2dvqyXmKQqQC6iuVK6T1`
 4. Redeploy your site
 
+#### For Railway:
+1. Go to your project dashboard on Railway
+2. Navigate to Variables tab
+3. Add: `RESEND_API_KEY` = `re_htmH5ZqP_7GBi2dvqyXmKQqQC6iuVK6T1`
+4. Redeploy your site
+
+#### For Render:
+1. Go to your service dashboard on Render
+2. Navigate to Environment tab
+3. Add: `RESEND_API_KEY` = `re_htmH5ZqP_7GBi2dvqyXmKQqQC6iuVK6T1`
+4. Redeploy your site
+
 #### For GitHub Pages:
-GitHub Pages doesn't support server-side environment variables. Use the fallback mode (see Option 2).
-
-### Option 2: Use Fallback Mode (Current)
-
-The site now includes a fallback mode that works without the API key:
-- ✅ Contact form will work
-- ✅ Form validation works
-- ✅ Rate limiting works
-- ⚠️ Emails won't be sent (logged to console instead)
-- ✅ User gets success message
-
-### Option 3: Use a Different Email Service
-
-If you prefer not to use Resend, you can:
-1. Sign up for a free email service (SendGrid, Mailgun, etc.)
-2. Update the `src/lib/email.ts` file
-3. Configure the new API key
+GitHub Pages doesn't support server-side environment variables. Consider using Vercel, Netlify, or another hosting platform that supports environment variables.
 
 ## Current Status
 
-- ✅ **Fallback mode**: Works without API key
+- ✅ **Email service**: Resend integration working
 - ✅ **Form validation**: All validation rules working
 - ✅ **Rate limiting**: 5 requests per hour per IP
 - ✅ **Security**: Input sanitization and validation
@@ -50,10 +48,16 @@ If you prefer not to use Resend, you can:
 Test your contact form:
 1. Fill out the form with valid data
 2. Submit the form
-3. Check browser console for email logs (in fallback mode)
+3. Check your email (tiendn.fw@gmail.com) for the message
 4. Verify success message appears
 
 ## Troubleshooting
+
+### If you see "RESEND_API_KEY environment variable is not configured":
+1. **Check your hosting platform**: Ensure the environment variable is set
+2. **Verify the API key**: Make sure it matches exactly: `re_htmH5ZqP_7GBi2dvqyXmKQqQC6iuVK6T1`
+3. **Redeploy**: After setting the environment variable, redeploy your site
+4. **Check logs**: Look at your hosting platform's logs for any errors
 
 ### If you see "Failed to send email":
 1. Check if `RESEND_API_KEY` is set in your hosting platform
@@ -67,8 +71,9 @@ Test your contact form:
 
 ## Next Steps
 
-1. **For full email functionality**: Configure `RESEND_API_KEY` in your hosting platform
-2. **For current functionality**: The site works perfectly in fallback mode
-3. **Monitor**: Check your hosting platform's logs for any issues
+1. **Configure environment variable** in your hosting platform
+2. **Redeploy** your site
+3. **Test** the contact form
+4. **Monitor** your email inbox for messages
 
 Your portfolio is now ready for production! 🚀 
