@@ -50,7 +50,9 @@ export function ContactFeedback({ feedback, onClose }: ContactFeedbackProps) {
 
   return (
     <div
-      className={`fixed bottom-4 right-4 z-[999999] max-w-md w-full p-4 rounded-lg border backdrop-blur-sm transition-all duration-300 ${getBackgroundColor()} ${getTextColor()}`}
+      className={`fixed z-[999999] p-4 rounded-lg border backdrop-blur-sm transition-all duration-300 ${getBackgroundColor()} ${getTextColor()}
+        bottom-4 left-4 right-4 sm:bottom-4 sm:right-4 sm:left-auto sm:max-w-md sm:w-auto
+        mx-auto sm:mx-0`}
       role="alert"
       aria-live="polite"
       style={{ zIndex: 999999 }}
@@ -88,7 +90,9 @@ export function ContactFeedback({ feedback, onClose }: ContactFeedbackProps) {
 // Loading spinner component
 export function ContactLoading() {
   return (
-    <div className="fixed bottom-4 right-4 z-[999999] max-w-md w-full p-4 rounded-lg border bg-blue-900/20 border-blue-500/30 backdrop-blur-sm" style={{ zIndex: 999999 }}>
+    <div className="fixed z-[999999] p-4 rounded-lg border bg-blue-900/20 border-blue-500/30 backdrop-blur-sm
+      bottom-4 left-4 right-4 sm:bottom-4 sm:right-4 sm:left-auto sm:max-w-md sm:w-auto
+      mx-auto sm:mx-0" style={{ zIndex: 999999 }}>
       <div className="flex items-center gap-3">
         <div className="flex-shrink-0">
           <div className="w-5 h-5 border-2 border-blue-400 border-t-transparent rounded-full animate-spin"></div>
