@@ -32,6 +32,32 @@ export default function ContactPage() {
         <GlassmorphicContact />
       </div>
 
+      {/* Star Divider */}
+      <div className="relative z-10 flex justify-center items-center py-8">
+        <div className="relative mx-4 md:mx-6">
+          {/* Outer glow effect */}
+          <div className="absolute inset-0 w-4 h-4 md:w-5 md:h-5 bg-white/25 rounded-full blur-md" />
+
+          {/* Inner glow */}
+          <div className="absolute inset-0 w-3 h-3 md:w-4 md:h-4 bg-white/40 rounded-full blur-sm" />
+
+          {/* 4-pointed star (diamond) shape */}
+          <div className="relative w-4 h-4 md:w-5 md:h-5 flex items-center justify-center">
+            <svg
+              viewBox="0 0 24 24"
+              className="w-3 h-3 md:w-4 md:h-4 fill-white/80"
+              style={{
+                filter: "drop-shadow(0 0 8px rgba(255, 255, 255, 0.6))",
+              }}
+            >
+              {/* 4-pointed star path */}
+              <path d="M12 2 L16 12 L12 22 L8 12 Z" />
+              <path d="M2 12 L12 8 L22 12 L12 16 Z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
       {/* FAQ Section */}
       <div className="relative z-10 mt-8">
         <FAQSection />
