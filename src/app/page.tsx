@@ -178,8 +178,8 @@ export default function Home() {
           </div>
           </section>
 
-          {/* Section Divider - Proportional spacing */}
-          <div style={{ marginTop: 'clamp(8vh, 12vh, 16vh)' }}>
+          {/* Section Divider - Full width */}
+          <div style={{ marginTop: 'clamp(8vh, 12vh, 16vh)' }} className="w-full -mx-[3%]">
             <SectionDivider />
           </div>
 
