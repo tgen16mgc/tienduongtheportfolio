@@ -108,11 +108,17 @@ export function getClientIP(request: Request): string {
  */
 export function cleanupRateLimits(): void {
   const now = Date.now();
-  for (const [key, entry] of rateLimitStore.entries()) {
+  const keysToDelete: string[] = [];
+  
+  rateLimitStore.forEach((entry, key) => {
     if (now > entry.resetTime) {
-      rateLimitStore.delete(key);
+      keysToDelete.push(key);
     }
-  }
+  });
+  
+  keysToDelete.forEach(key => {
+    rateLimitStore.delete(key);
+  });
 }
 
 /**
