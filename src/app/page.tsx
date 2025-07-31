@@ -1,11 +1,14 @@
 'use client';
 
+import React, { Suspense, lazy } from 'react';
 import ProfileCard from '../components/ui/ProfileCard';
 import HeroIntroduction from '../components/sections/HeroIntroduction';
 import SectionDivider from '../components/ui/SectionDivider';
 import TitleSection from '../components/ui/TitleSection';
-import Carousel from '../components/ui/Carousel';
 import { useParallax } from '../hooks/useParallax';
+
+// Lazy load non-critical components
+const Carousel = lazy(() => import('../components/ui/Carousel'));
 
 export default function Home() {
   const parallaxOffset = useParallax(0.3) // Slower parallax for background depth
@@ -190,7 +193,13 @@ export default function Home() {
 
           {/* Projects Carousel - Proportional spacing */}
           <section className="w-full" style={{ marginTop: 'clamp(4vh, 6vh, 8vh)' }}>
-            <Carousel />
+            <Suspense fallback={
+              <div className="w-full h-64 flex items-center justify-center">
+                <div className="text-white text-lg">Loading projects...</div>
+              </div>
+            }>
+              <Carousel />
+            </Suspense>
           </section>
 
         </div>

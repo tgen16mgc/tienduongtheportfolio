@@ -13,7 +13,7 @@ const CustomCursor: React.FC = () => {
       });
     };
 
-    window.addEventListener('mousemove', mouseMove);
+    window.addEventListener('mousemove', mouseMove, { passive: true });
 
     return () => {
       window.removeEventListener('mousemove', mouseMove);
@@ -44,8 +44,8 @@ const CustomCursor: React.FC = () => {
     const mouseLeave = () => setCursorVariant('default');
 
     textElements.forEach((element) => {
-      element.addEventListener('mouseenter', mouseEnter);
-      element.addEventListener('mouseleave', mouseLeave);
+      element.addEventListener('mouseenter', mouseEnter, { passive: true });
+      element.addEventListener('mouseleave', mouseLeave, { passive: true });
     });
 
     return () => {

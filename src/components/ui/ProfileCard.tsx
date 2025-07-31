@@ -1,11 +1,11 @@
 "use client";
 
-import React from 'react';
+import React, { memo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import ResponsivePicture from './ResponsivePicture';
 
-const ProfileCard: React.FC = () => {
+const ProfileCard = memo(() => {
   return (
     <div 
       data-layer="Frame 49" 
@@ -21,13 +21,17 @@ const ProfileCard: React.FC = () => {
       }}
     >
       <div className="absolute top-0 left-0 w-full h-full">
-        <Image 
-          src="https://cdn.jsdelivr.net/gh/tgen16mgc/tienduongtheportfolio@8d9e6ae9e5c29210987af371ecccddc8322fe2f3/public/images/Card.png"
+        <ResponsivePicture
+          basePath="/images"
+          filename="Card"
           alt="Card Background"
-          fill
-          className="object-cover"
-          priority
-          unoptimized
+          width={200}
+          height={372}
+          priority={true}
+          useCdn={true}
+          cdnType="staticzap"
+          className="absolute inset-0"
+          imgClassName="object-cover w-full h-full"
         />
       </div>
       
@@ -395,6 +399,6 @@ const ProfileCard: React.FC = () => {
       </div>
     </div>
   );
-};
+});
 
 export default ProfileCard; 

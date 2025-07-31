@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 interface ImageSize {
   width: number;
@@ -17,7 +17,9 @@ interface ResponsivePictureProps {
   loading?: 'lazy' | 'eager';
   priority?: boolean;
   useCdn?: boolean;
-  cdnType?: 'cloudflare' | 'jsdelivr' | 'cloudinary' | 'vercel' | 'github' | 'statically';
+  cdnType?: 'cloudflare' | 'jsdelivr' | 'cloudinary' | 'vercel' | 'github' | 'statically' | 'staticzap';
+  placeholder?: 'blur' | 'empty';
+  blurDataURL?: string;
 }
 
 const SIZES: ImageSize[] = [
@@ -26,7 +28,7 @@ const SIZES: ImageSize[] = [
   { width: 1920, suffix: 'lg' },
 ];
 
-// GitHub username and repository name for jsDelivr CDN
+// GitHub username and repository name for Staticzap CDN
 const GITHUB_USER = 'tgen16mgc';
 const GITHUB_REPO = 'tienduongtheportfolio';
 const GITHUB_BRANCH = 'main';
@@ -35,7 +37,7 @@ const GITHUB_BRANCH = 'main';
  * ResponsivePicture component that uses the picture element with multiple sources
  * for different formats and sizes
  */
-export default function ResponsivePicture({
+const ResponsivePicture = memo(function ResponsivePicture({
   basePath,
   filename,
   alt,
@@ -48,6 +50,8 @@ export default function ResponsivePicture({
   priority = false,
   useCdn = false,
   cdnType = 'statically',
+  placeholder = 'empty',
+  blurDataURL,
 }: ResponsivePictureProps) {
   // Determine loading attribute
   const loadingAttr = priority ? 'eager' : loading;
@@ -69,7 +73,8 @@ export default function ResponsivePicture({
         baseUrl = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/public${basePath}`;
         break;
       case 'statically':
-        // Use Statically CDN which works well with GitHub
+      case 'staticzap':
+        // Use Staticzap CDN (same as Statically)
         baseUrl = `https://cdn.statically.io/gh/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/public${basePath}`;
         break;
       case 'cloudinary':
@@ -114,16 +119,29 @@ export default function ResponsivePicture({
           sizes={sizes}
         />
         
-        {/* Fallback image */}
+        {/* Fallback image with optimized loading */}
         <img
           src={`${baseUrl}/${filename}.webp`}
           alt={alt}
           width={width}
           height={height}
           loading={loadingAttr}
-          className={`max-w-full h-auto ${imgClassName}`}
+          className={`w-full h-full object-cover ${imgClassName}`}
+          style={{
+            backgroundImage: placeholder === 'blur' && blurDataURL ? `url(${blurDataURL})` : undefined,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+          onLoad={(e) => {
+            // Remove blur placeholder when image loads
+            if (placeholder === 'blur' && e.currentTarget.style.backgroundImage) {
+              e.currentTarget.style.backgroundImage = '';
+            }
+          }}
         />
       </picture>
     </div>
   );
-} 
+});
+
+export default ResponsivePicture; 

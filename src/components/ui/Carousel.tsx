@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import ResponsivePicture from './ResponsivePicture'
 
 interface Artwork {
   id: number
@@ -213,13 +214,28 @@ export default function Carousel() {
                 >
                   {/* Full Background - Artwork Image */}
                   <div className="absolute inset-0">
-                    <Image
-                      src={artwork.image || "/placeholder.svg"}
-                      alt={artwork.title}
-                      fill
-                      className="object-cover transition-transform duration-700"
-                      priority={isActive}
-                    />
+                    {artwork.image ? (
+                      <ResponsivePicture
+                        basePath="/images"
+                        filename={artwork.image}
+                        alt={artwork.title}
+                        width={500}
+                        height={500}
+                        priority={isActive}
+                        useCdn={true}
+                        cdnType="staticzap"
+                        className="w-full h-full"
+                        imgClassName="object-cover transition-transform duration-700"
+                      />
+                    ) : (
+                      <Image
+                        src="/placeholder.svg"
+                        alt={artwork.title}
+                        fill
+                        className="object-cover transition-transform duration-700"
+                        priority={isActive}
+                      />
+                    )}
                   </div>
 
                   {/* Bottom Section - Adaptive Size with Liquid Glass Effect */}

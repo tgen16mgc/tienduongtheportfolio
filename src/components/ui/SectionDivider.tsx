@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, memo } from "react"
 
 interface SectionDividerProps {
   text?: string
@@ -8,7 +8,7 @@ interface SectionDividerProps {
   className?: string
 }
 
-export default function SectionDivider({
+const SectionDivider = memo(function SectionDivider({
   text = "2× revenue growth via marketing campaigns ★ 1,000+ event attendees managed ★ 3.75 GPA demonstrating marketing base excellence ★ Insight-led ★ Deadline-met ★ Contest-tested IMC plan ideas",
   speed = 35,
   className = "",
@@ -164,4 +164,6 @@ export default function SectionDivider({
       `}</style>
     </div>
   )
-}
+});
+
+export default SectionDivider;

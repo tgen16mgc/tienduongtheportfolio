@@ -1,41 +1,54 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
+import { loadGSAP } from '@/lib/dynamicImports';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const circleRef = useRef<HTMLDivElement>(null);
+  const [gsapLoaded, setGsapLoaded] = useState(false);
 
   useEffect(() => {
-    if (heroRef.current && circleRef.current) {
-      const heroElement = heroRef.current;
-      const circleElement = circleRef.current;
-      
-      const handleMouseMove = (e: MouseEvent) => {
-        const { clientX, clientY } = e;
-        const rect = heroElement.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        
-        const moveX = (clientX - centerX) * 0.02;
-        const moveY = (clientY - centerY) * 0.02;
-        
-        gsap.to(circleElement, {
-          x: moveX,
-          y: moveY,
-          duration: 1,
-          ease: 'power2.out',
-        });
-      };
-      
-      heroElement.addEventListener('mousemove', handleMouseMove);
-      
-      return () => {
-        heroElement.removeEventListener('mousemove', handleMouseMove);
-      };
-    }
+    // Dynamically import GSAP
+    const initializeGSAP = async () => {
+      try {
+        const gsap = await loadGSAP();
+        if (gsap && heroRef.current && circleRef.current) {
+          setGsapLoaded(true);
+          
+          const heroElement = heroRef.current;
+          const circleElement = circleRef.current;
+          
+          const handleMouseMove = (e: MouseEvent) => {
+            const { clientX, clientY } = e;
+            const rect = heroElement.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            const moveX = (clientX - centerX) * 0.02;
+            const moveY = (clientY - centerY) * 0.02;
+            
+            gsap.to(circleElement, {
+              x: moveX,
+              y: moveY,
+              duration: 1,
+              ease: 'power2.out',
+            });
+          };
+          
+          heroElement.addEventListener('mousemove', handleMouseMove);
+          
+          return () => {
+            heroElement.removeEventListener('mousemove', handleMouseMove);
+          };
+        }
+      } catch (error) {
+        console.error('Failed to load GSAP:', error);
+      }
+    };
+
+    initializeGSAP();
   }, []);
 
   const containerVariants = {

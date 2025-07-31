@@ -1,9 +1,12 @@
 'use client';
 
-import GlassmorphicContact from '../../components/ui/GlassmorphicContact';
-import FAQSection from '../../components/ui/faq-section';
+import React, { Suspense, lazy } from 'react';
 import SectionDivider from '../../components/ui/SectionDivider';
 import { useParallax } from '../../hooks/useParallax';
+
+// Lazy load non-critical components
+const GlassmorphicContact = lazy(() => import('../../components/ui/GlassmorphicContact'));
+const FAQSection = lazy(() => import('../../components/ui/faq-section'));
 
 export default function ContactPage() {
   const parallaxOffset = useParallax(0.2);
@@ -30,7 +33,13 @@ export default function ContactPage() {
 
       {/* Contact Component */}
       <div className="relative z-10">
-        <GlassmorphicContact />
+        <Suspense fallback={
+          <div className="w-full h-64 flex items-center justify-center">
+            <div className="text-white text-lg">Loading contact form...</div>
+          </div>
+        }>
+          <GlassmorphicContact />
+        </Suspense>
       </div>
 
       {/* Section Divider */}
@@ -43,7 +52,13 @@ export default function ContactPage() {
 
       {/* FAQ Section */}
       <div className="relative z-10 mt-8">
-        <FAQSection />
+        <Suspense fallback={
+          <div className="w-full h-64 flex items-center justify-center">
+            <div className="text-white text-lg">Loading FAQ...</div>
+          </div>
+        }>
+          <FAQSection />
+        </Suspense>
       </div>
 
       <style jsx>{`

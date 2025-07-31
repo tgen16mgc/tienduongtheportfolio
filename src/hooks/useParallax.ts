@@ -1,19 +1,32 @@
 "use client"
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 export function useParallax(speed: number = 0.5) {
   const [offset, setOffset] = useState(0)
+  const rafId = useRef<number | null>(null)
 
   useEffect(() => {
+    let ticking = false
+
     const handleScroll = () => {
-      setOffset(window.pageYOffset * speed)
+      if (!ticking) {
+        rafId.current = requestAnimationFrame(() => {
+          setOffset(window.pageYOffset * speed)
+          ticking = false
+        })
+        ticking = true
+      }
     }
 
-    const handleScrollThrottled = throttle(handleScroll, 16) // ~60fps
-
-    window.addEventListener('scroll', handleScrollThrottled)
-    return () => window.removeEventListener('scroll', handleScrollThrottled)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (rafId.current) {
+        cancelAnimationFrame(rafId.current)
+      }
+    }
   }, [speed])
 
   return offset
