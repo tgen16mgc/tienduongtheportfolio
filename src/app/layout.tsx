@@ -26,7 +26,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" />
         <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet" />
-        {/* Critical image preloading for hero section via Staticzap CDN */}
+        {/* Critical image preloading for hero section via CDN */}
         <link rel="preload" as="image" href="https://cdn.statically.io/gh/tgen16mgc/tienduongtheportfolio/main/public/images/Card.webp" />
         <link rel="preload" as="image" href="https://cdn.statically.io/gh/tgen16mgc/tienduongtheportfolio/main/public/images/Card-sm.webp" media="(max-width: 640px)" />
         <link rel="preload" as="image" href="https://cdn.statically.io/gh/tgen16mgc/tienduongtheportfolio/main/public/images/Card-md.webp" media="(min-width: 641px) and (max-width: 1024px)" />

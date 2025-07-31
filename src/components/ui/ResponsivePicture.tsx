@@ -17,7 +17,7 @@ interface ResponsivePictureProps {
   loading?: 'lazy' | 'eager';
   priority?: boolean;
   useCdn?: boolean;
-  cdnType?: 'cloudflare' | 'jsdelivr' | 'cloudinary' | 'vercel' | 'github' | 'statically' | 'staticzap';
+  cdnType?: 'cloudflare' | 'jsdelivr' | 'cloudinary' | 'vercel' | 'github' | 'statically';
   placeholder?: 'blur' | 'empty';
   blurDataURL?: string;
 }
@@ -28,7 +28,7 @@ const SIZES: ImageSize[] = [
   { width: 1920, suffix: 'lg' },
 ];
 
-// GitHub username and repository name for Staticzap CDN
+// GitHub username and repository name for jsDelivr CDN
 const GITHUB_USER = 'tgen16mgc';
 const GITHUB_REPO = 'tienduongtheportfolio';
 const GITHUB_BRANCH = 'main';
@@ -73,8 +73,7 @@ const ResponsivePicture = memo(function ResponsivePicture({
         baseUrl = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/public${basePath}`;
         break;
       case 'statically':
-      case 'staticzap':
-        // Use Staticzap CDN (same as Statically)
+        // Use Statically CDN which works well with GitHub
         baseUrl = `https://cdn.statically.io/gh/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/public${basePath}`;
         break;
       case 'cloudinary':

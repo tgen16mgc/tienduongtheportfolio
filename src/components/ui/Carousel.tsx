@@ -223,7 +223,7 @@ export default function Carousel() {
                         height={500}
                         priority={isActive}
                         useCdn={true}
-                        cdnType="staticzap"
+                        cdnType="statically"
                         className="w-full h-full"
                         imgClassName="object-cover transition-transform duration-700"
                       />

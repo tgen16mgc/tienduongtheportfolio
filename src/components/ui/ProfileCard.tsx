@@ -29,7 +29,7 @@ const ProfileCard = memo(() => {
           height={372}
           priority={true}
           useCdn={true}
-          cdnType="staticzap"
+          cdnType="statically"
           className="absolute inset-0"
           imgClassName="object-cover w-full h-full"
         />
