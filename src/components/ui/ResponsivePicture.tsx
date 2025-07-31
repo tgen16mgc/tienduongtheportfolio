@@ -104,13 +104,6 @@ const ResponsivePicture = memo(function ResponsivePicture({
   return (
     <div className={className}>
       <picture>
-        {/* AVIF format - best compression, modern browsers */}
-        <source
-          type="image/avif"
-          srcSet={generateSrcSet('avif')}
-          sizes={sizes}
-        />
-        
         {/* WebP format - good compression, wide support */}
         <source
           type="image/webp"

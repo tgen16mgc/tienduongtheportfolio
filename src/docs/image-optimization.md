@@ -25,7 +25,6 @@ This will:
 For each image (e.g., `example.jpg`), the script generates:
 - `example.webp` - Full-size WebP version
 - `example-sm.webp`, `example-md.webp`, `example-lg.webp` - Responsive WebP versions
-- `example-sm.avif`, `example-md.avif`, `example-lg.avif` - Responsive AVIF versions
 
 ## Using the ResponsivePicture Component
 
@@ -77,7 +76,7 @@ async rewrites() {
 
 ## Benefits
 
-- **Faster Loading**: Modern formats like WebP and AVIF are 25-50% smaller than JPEG/PNG
+- **Faster Loading**: Modern formats like WebP are 25-50% smaller than JPEG/PNG
 - **Better SEO**: Page speed is a ranking factor for search engines
 - **Lower Bandwidth**: Smaller file sizes mean less data transfer
 - **Responsive Loading**: Only the appropriate image size is loaded based on the device
