@@ -1,8 +1,1 @@
-{
-  "/contact/page": "app/contact/page.js",
-  "/_not-found": "app/_not-found.js",
-  "/page": "app/page.js",
-  "/faq/page": "app/faq/page.js",
-  "/test/page": "app/test/page.js",
-  "/api/contact/route": "app/api/contact/route.js"
-}
+{}
