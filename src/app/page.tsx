@@ -1,6 +1,7 @@
 'use client';
 
 import React, { Suspense, lazy } from 'react';
+import Link from 'next/link';
 import ProfileCard from '../components/ui/ProfileCard';
 import HeroIntroduction from '../components/sections/HeroIntroduction';
 import SectionDivider from '../components/ui/SectionDivider';
@@ -200,6 +201,25 @@ export default function Home() {
             }>
               <Carousel />
             </Suspense>
+          </section>
+
+          {/* Character Customization Demo Section */}
+          <section className="w-full" style={{ marginTop: 'clamp(6vh, 8vh, 10vh)' }}>
+            <div className="text-center">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Character Customization Demo</h3>
+              <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-6">
+                Explore our STYLE OPTIONS and Color variants system. Experience how color variants only appear when the corresponding assets are available.
+              </p>
+              <Link 
+                href="/character"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+              >
+                Try Character Customization
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </Link>
+            </div>
           </section>
 
         </div>

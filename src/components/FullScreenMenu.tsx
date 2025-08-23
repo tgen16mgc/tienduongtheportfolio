@@ -322,6 +322,19 @@ const FullScreenMenu = ({ isOpen, onClose }: FullScreenMenuProps) => {
                       </motion.span>
                     </Link>
                     <Link 
+                      href="/character"
+                      onClick={handleClick}
+                      className={`block text-center text-[clamp(16px,1.6vw,28px)] font-extrabold leading-[105%] tracking-[-0.5px] md:tracking-[-0.6px] transition-opacity ${pathname === '/character' ? 'text-white' : 'text-[#666666]'}`}
+                    >
+                      <motion.span
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        className="inline-block"
+                      >
+                        CHARACTER
+                      </motion.span>
+                    </Link>
+                    <Link 
                       href="/contact"
                       onClick={handleClick}
                       className={`block text-center text-[clamp(16px,1.6vw,28px)] font-extrabold leading-[105%] tracking-[-0.5px] md:tracking-[-0.6px] transition-opacity ${pathname === '/contact' ? 'text-white' : 'text-[#666666]'}`}

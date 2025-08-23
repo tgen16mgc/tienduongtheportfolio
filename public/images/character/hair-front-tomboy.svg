@@ -1,0 +1,6 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="none"/>
+  <!-- Default hair style -->
+  <path d="M50 50 Q100 30 150 50 Q150 80 100 90 Q50 80 50 50" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+  <text x="100" y="160" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="12">Default Hair</text>
+</svg>
